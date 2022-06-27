@@ -14,6 +14,12 @@ class ApplicationPresenter: ApplicationContract.Presenter() {
 
     override fun onViewTaken(view: ApplicationContract.View) {
         this.view = view
-        view.setLabel(createApplicationScreenMessage())
+        view.setLabel(createApplicationScreenMessage()+"!!!!")
+        view.populateStationList(listOf<String>("1","2"))
+    }
+
+    override fun onSearchClicked() {
+//        view?.setLabel("CLIK")
+        this.view?.showResults("result tbd")
     }
 }
