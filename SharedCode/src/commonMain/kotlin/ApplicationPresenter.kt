@@ -1,9 +1,15 @@
 package com.jetbrains.handson.mpp.mobile
 
+import com.jetbrains.handson.mpp.mobile.dataObjects.StationInfo
 import com.jetbrains.handson.mpp.mobile.dataObjects.StationList
 import io.ktor.client.*
+import io.ktor.client.features.json.*
+import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
+import io.ktor.http.*
 import kotlinx.coroutines.*
+import kotlinx.serialization.*
+
 import kotlin.coroutines.CoroutineContext
 
 
@@ -29,10 +35,20 @@ class ApplicationPresenter: ApplicationContract.Presenter() {
     }
 
     suspend fun getStationList() {
-        val req  = HttpClient().get<StationList>(
+        try {
+
+
+        val req  = HttpClient(){
+            install(JsonFeature)
+        }.get<StationList>(
             "https://mobile-api-softwire2.lner.co.uk/v1/stations")
-        val stationNames = req.stations.map{it -> it.name}
-        view?.populateStationList(stationNames)
+        val stationNames = req.stations.mapNotNull { it.name }
+            view?.populateStationList(stationNames)
+            println(req)
+        }
+        catch (e:Exception){
+            println(e)
+        }
     }
 
 }

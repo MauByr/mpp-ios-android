@@ -1,5 +1,6 @@
 package com.jetbrains.handson.mpp.mobile.dataObjects
 
+import io.ktor.utils.io.pool.*
 import kotlinx.serialization.Serializable
 
 typealias NLC  = String
@@ -10,11 +11,16 @@ data class StationList(
 )
 @Serializable
 data class StationInfo(
-    val id:Int,
-    val name:String,
-    val aliases:List<String>,
-    val crs: CRS,
-    val  nlc : NLC
+    val id:Int?,
+    val name:String?,
+    val aliases:List<String>?,
+    val crs: CRS?,
+    val  nlc : NLC?,
+    val latitude : Double?,
+    val longitude : Double?,
+    val isGroupStation : Boolean?,
+    val isSilverSeekStation:Boolean?
+
 )
 @Serializable
 data class FareResponse(

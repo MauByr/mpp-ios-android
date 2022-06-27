@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
     override fun populateStationList(stations: List<String>) {
         findViewById<Spinner>(R.id.from_station)?.adapter =
             ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, stations)
+        findViewById<Spinner>(R.id.to_station)?.adapter =
+            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, stations)
 
 //        findViewById<Spinner>(R.id.from_station)?.adapter.also{
 //            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, stations)}
