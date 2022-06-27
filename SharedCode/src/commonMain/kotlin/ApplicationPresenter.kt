@@ -1,8 +1,13 @@
 package com.jetbrains.handson.mpp.mobile
 
+import com.jetbrains.handson.mpp.mobile.dataObjects.StationList
+import io.ktor.client.*
+import io.ktor.client.request.*
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
+
+const val rootURL  = "https://mobile-api-softwire1.lner.co.uk/v1/stations"
 class ApplicationPresenter: ApplicationContract.Presenter() {
 
     private val dispatchers = AppDispatchersImpl()
@@ -15,11 +20,19 @@ class ApplicationPresenter: ApplicationContract.Presenter() {
     override fun onViewTaken(view: ApplicationContract.View) {
         this.view = view
         view.setLabel(createApplicationScreenMessage()+"!!!!")
-        view.populateStationList(listOf<String>("1","2"))
+        launch { getStationList() }
     }
 
     override fun onSearchClicked() {
 //        view?.setLabel("CLIK")
         this.view?.showResults("result tbd")
     }
+
+    suspend fun getStationList() {
+        val req  = HttpClient().get<StationList>(
+            "https://mobile-api-softwire2.lner.co.uk/v1/stations")
+        val stationNames = req.stations.map{it -> it.name}
+        view?.populateStationList(stationNames)
+    }
+
 }
