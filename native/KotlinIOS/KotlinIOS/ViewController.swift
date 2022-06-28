@@ -1,11 +1,11 @@
 import UIKit
 import SharedCode
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
 
-    @IBOutlet private var label: UILabel!
-    @IBOutlet var trainsTable: UITableView!
     @IBOutlet var fareSearchButton: UIButton!
+    @IBOutlet var trainsTable: UITableView!
+
     //@IBAction func doSomething(){onSearchClicked()}
     
     let validTrains = ["1", "2", "3", "4"]
@@ -15,24 +15,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.onViewTaken(view: self)
-        
-        self.trainsTable.rowHeight = UITableView.automaticDimension
-        
+        setupTable()
+    }
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate{
+    private func setupTable(){
         self.trainsTable.dataSource = self
         self.trainsTable.delegate = self
         self.registerTableViewCells()
     }
-}
-
-extension ViewController: ApplicationContractView {
     
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.validTrains.count
     }
     
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as? customTableViewCell {
             return cell
         }
@@ -40,27 +38,31 @@ extension ViewController: ApplicationContractView {
         return UITableViewCell()
     }
     
-    private func registerTableViewCells() {
-        let textFieldCell = UINib(nibName: "customTableViewCell",
-                                  bundle: nil)
-        self.trainsTable.register(textFieldCell,
-                                forCellReuseIdentifier: "customTableViewCell")
+    private func registerTableViewCells() {let textFieldCell = UINib(nibName: "customTableViewCell", bundle: nil)
+        self.trainsTable.register(textFieldCell, forCellReuseIdentifier: "customTableViewCell")
     }
+}
+
+
+extension ViewController: ApplicationContractView {
     
+    func showResults(result: FareResponse) {
+        // TODO: not yet implemented
+    }
+
     func populateStationList(stations: [String]) {
-        
+        // TODO: not yet implemented
     }
     
     func showAlert(msg: String) {
-        
+        // TODO: not yet implemented
     }
     
     func showResults(result: String) {
-        
+        // TODO: not yet implemented
     }
     
     func setLabel(text: String) {
-        //label.text = text
+        // TODO: not yet implemented
     }
-
 }
