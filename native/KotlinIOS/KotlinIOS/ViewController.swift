@@ -8,7 +8,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var trainsTable: UITableView!
     
     
-    let validTrains = ["1"]
+    let validTrains = ["1", "2", "3", "4"]
 
     private let presenter: ApplicationContractPresenter = ApplicationPresenter()
     
