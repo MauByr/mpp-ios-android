@@ -14,6 +14,18 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ApplicationContractView {
+    func populateStationList(stations: [String]) {
+        <#code#>
+    }
+    
+    func showAlert(msg: String) {
+        <#code#>
+    }
+    
+    func showResults(result: String) {
+        <#code#>
+    }
+    
     func setLabel(text: String) {
         label.text = text
     }
