@@ -19,7 +19,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-oD-jHq">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button" buttonSize="large"/>
+                                <connections>
+                                    <action selector="doSomething" destination="BYZ-38-t0r" eventType="touchUpInside" id="eka-44-RBh"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="lcS-hV-RSW" userLabel="trainsTableView">
                                 <rect key="frame" x="0.0" y="448" width="414" height="448"/>
@@ -30,6 +33,7 @@
                         <viewLayoutGuide key="safeArea" id="ws0-RM-PHx"/>
                     </stackView>
                     <connections>
+                        <outlet property="fareSearchButton" destination="hKj-oD-jHq" id="uYC-lv-aJE"/>
                         <outlet property="trainsTable" destination="lcS-hV-RSW" id="3EB-oZ-9q5"/>
                     </connections>
                 </viewController>

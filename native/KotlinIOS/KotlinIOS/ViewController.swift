@@ -4,9 +4,9 @@ import SharedCode
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet private var label: UILabel!
-    //@IBOutlet weak var tableview: UITableView!
     @IBOutlet var trainsTable: UITableView!
-    
+    @IBOutlet var fareSearchButton: UIButton!
+    //@IBAction func doSomething(){onSearchClicked()}
     
     let validTrains = ["1", "2", "3", "4"]
 
@@ -62,4 +62,5 @@ extension ViewController: ApplicationContractView {
     func setLabel(text: String) {
         //label.text = text
     }
+
 }
