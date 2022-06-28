@@ -1,12 +1,13 @@
 package com.jetbrains.handson.mpp.mobile
 
+import com.jetbrains.handson.mpp.mobile.dataObjects.FareResponse
 import kotlinx.coroutines.CoroutineScope
 
 interface ApplicationContract {
     interface View {
         fun setLabel(text: String)
         fun showAlert(msg:String)
-        fun showResults(result: String)
+        fun showResults(result: FareResponse)
         fun populateStationList(stations :List<String>)
     }
 

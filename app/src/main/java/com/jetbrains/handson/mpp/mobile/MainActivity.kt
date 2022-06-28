@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
+import com.jetbrains.handson.mpp.mobile.dataObjects.FareResponse
 
 class MainActivity : AppCompatActivity(), ApplicationContract.View {
 
@@ -26,8 +27,8 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
         TODO("Not yet implemented")
     }
 
-    override fun showResults(result: String) {
-        findViewById<TextView>(R.id.search_results).text = result
+    override fun showResults(result: FareResponse) {
+        findViewById<TextView>(R.id.search_results).text = result.toString()
     }
 
     override fun populateStationList(stations: List<String>) {

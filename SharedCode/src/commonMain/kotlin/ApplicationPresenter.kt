@@ -31,24 +31,19 @@ class ApplicationPresenter: ApplicationContract.Presenter() {
 
     override fun onSearchClicked() {
 //        view?.setLabel("CLIK")
-        this.view?.showResults("result tbd")
+        launch {
+            val res = APIService().getJourneyList(JourneyQuery("KGX","EDB"))
+            println(res)
+            if (res != null) {
+                view?.showResults(res)
+            }
+        }
+//        this.view?.showResults("result tbd")
     }
 
     suspend fun getStationList() {
-        try {
-
-
-        val req  = HttpClient(){
-            install(JsonFeature)
-        }.get<StationList>(
-            "https://mobile-api-softwire2.lner.co.uk/v1/stations")
-        val stationNames = req.stations.mapNotNull { it.name }
-            view?.populateStationList(stationNames)
-            println(req)
-        }
-        catch (e:Exception){
-            println(e)
-        }
+        APIService().getStationList().let { val stationNames = it.stations.mapNotNull { it.name }
+            view?.populateStationList(stationNames) }
     }
 
 }
