@@ -26,10 +26,9 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
 
     override fun onSearchClicked() {
         launch {
-            val res = APIService.getJourneyList(JourneyQuery("KGX", "EDB"))
-            println(res)
-            if (res != null) {
-                view?.showResults(res.outboundJourneys.map { JourneyTableDataElem(it) })
+            APIService.getJourneyList(JourneyQuery("KGX", "EDB"))?.let { journey ->
+                println(journey)
+                view?.showResults(journey.outboundJourneys.map { elem -> JourneyTableDataElem(elem) })
             }
         }
     }
