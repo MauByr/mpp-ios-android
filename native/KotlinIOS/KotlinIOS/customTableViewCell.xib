@@ -85,7 +85,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzj-3O-R6y" userLabel="journeyTime">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="journeyTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzj-3O-R6y" userLabel="journeyTime">
                                         <rect key="frame" x="155" y="0.0" width="155" height="36.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -119,9 +119,9 @@
                 <outlet property="arrivalStation" destination="5Wx-tG-m4G" id="m7h-Wt-FSW"/>
                 <outlet property="arrivalTime" destination="iME-xm-txX" id="I9Y-Jg-Lhg"/>
                 <outlet property="carrier" destination="DH8-l0-zfe" id="i2H-1d-EJQ"/>
+                <outlet property="departureStation" destination="GKK-yf-6lY" id="R3d-CG-NZE"/>
                 <outlet property="departureTime" destination="cwB-rp-UJS" id="j4t-X4-MQj"/>
                 <outlet property="journeyTime" destination="rzj-3O-R6y" id="nLV-kp-tps"/>
-                <outlet property="startStation" destination="GKK-yf-6lY" id="g9u-qu-qnv"/>
                 <outlet property="ticketPrice" destination="Lmg-us-8YH" id="ek5-iL-tc4"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="72.991071428571431"/>
