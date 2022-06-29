@@ -54,6 +54,9 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     private func setupScrollWheel(){
         self.departureStationScrollWheel.dataSource = self
         self.departureStationScrollWheel.delegate = self
+        
+        self.arrivalStationScrollWheel.dataSource = self
+        self.arrivalStationScrollWheel.delegate = self
         populateStationList(stations: validStations)
     }
     
@@ -80,6 +83,7 @@ extension ViewController: ApplicationContractView {
     func populateStationList(stations: [String]) {
         validStations = stations
         departureStationScrollWheel.reloadAllComponents()
+        arrivalStationScrollWheel.reloadAllComponents()
         print(validStations)
     }
     
