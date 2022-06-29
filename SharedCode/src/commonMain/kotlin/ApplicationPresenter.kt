@@ -7,7 +7,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 
-const val rootURL = "https://mobile-api-softwire1.lner.co.uk/v1/stations"
+const val rootURL = "https://mobile-api-softwire2.lner.co.uk/v1/"
 
 class ApplicationPresenter : ApplicationContract.Presenter() {
 
@@ -21,12 +21,12 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
     override fun onViewTaken(view: ApplicationContract.View) {
         this.view = view
         view.setLabel(createApplicationScreenMessage() + "!!!!")
-        launch { getStationList() }
+        getStationList()
     }
 
     override fun onSearchClicked() {
         launch {
-            val res = APIService().getJourneyList(JourneyQuery("KGX", "EDB"))
+            val res = APIService.getJourneyList(JourneyQuery("KGX", "EDB"))
             println(res)
             if (res != null) {
                 view?.showResults(res.outboundJourneys.map { JourneyTableDataElem(it) })
@@ -34,10 +34,12 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
         }
     }
 
-    suspend fun getStationList() {
-        APIService().getStationList().let {
-            val stationNames = it.stations.mapNotNull { it.name }
-            view?.populateStationList(stationNames)
+    private fun getStationList() {
+        launch {
+            APIService.getStationList().let { stationList ->
+                val stationNames = stationList?.stations?.mapNotNull { it.name }
+                stationNames?.let { view?.populateStationList(it) }
+            }
         }
     }
 
