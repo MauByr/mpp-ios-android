@@ -10,7 +10,7 @@ class ViewController: UIViewController {
         presenter.onSearchClicked()
     }
 
-    var validTrains = ["1", "2", "3", "4"]
+    var validTrains : [Journey] = []
 
     private let presenter: ApplicationContractPresenter = ApplicationPresenter()
     
@@ -35,12 +35,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell") as? customTableViewCell {
+            cell.setJourney(journey: validTrains[indexPath.row])
             return cell
         }
         
         return UITableViewCell()
     }
-    
     private func registerTableViewCells() {let textFieldCell = UINib(nibName: "customTableViewCell", bundle: nil)
         self.trainsTable.register(textFieldCell, forCellReuseIdentifier: "customTableViewCell")
     }
@@ -56,15 +56,11 @@ extension ViewController: ApplicationContractView {
     func showResults(result: FareResponse) {
         print("DATA")
         print(result.outboundJourneys.count)
-        validTrains.removeAll()
-        validTrains = result.outboundJourneys.map(displayJourney(journey:))
-        print(validTrains)
+        validTrains = result.outboundJourneys
         trainsTable.reloadData()
     }
     
-    private func displayJourney(journey :Journey) -> String{
-        return "_"
-    }
+
     
     func populateStationList(stations: [String]) {
         // TODO: not yet implemented
