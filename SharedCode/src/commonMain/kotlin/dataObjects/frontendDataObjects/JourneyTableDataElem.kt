@@ -4,7 +4,7 @@ import com.jetbrains.handson.mpp.mobile.dataObjects.Journey
 import com.jetbrains.handson.mpp.mobile.dataObjects.Station
 import com.soywiz.klock.*
 
-const val BEST_TRAIN_OPERATOR = "LNER"
+const val BEST_TRAIN_OPERATOR = "London North Eastern Railway"
 val ISODateFormat = DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
 class JourneyTableDataElem(journey: Journey) {
     val startStation: JourneyStation = JourneyStation(journey.originStation)
