@@ -2,6 +2,7 @@ package com.jetbrains.handson.mpp.mobile
 
 import com.jetbrains.handson.mpp.mobile.dataObjects.StationInfo
 import com.jetbrains.handson.mpp.mobile.dataObjects.StationList
+import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
 import io.ktor.client.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
@@ -35,7 +36,7 @@ class ApplicationPresenter: ApplicationContract.Presenter() {
             val res = APIService().getJourneyList(JourneyQuery("KGX","EDB"))
             println(res)
             if (res != null) {
-                view?.showResults(res)
+                view?.showResults(res.outboundJourneys.map { JourneyTableDataElem(it) })
             }
         }
 //        this.view?.showResults("result tbd")
