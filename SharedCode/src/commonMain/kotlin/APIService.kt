@@ -57,7 +57,8 @@ class JourneyQuery(private val from: String, private val to: String, private val
         val timeOffset = TimeSpan(60000.0)
         val timeDiff = time - DateTime.nowLocal()
         if(timeDiff<timeOffset){
-            return time.addOffset(timeOffset-timeDiff)
+            val minInMilliseconds = 60*1000.0
+            return time + (TimeSpan(minInMilliseconds) - timeDiff)
         }
         return time
     }
