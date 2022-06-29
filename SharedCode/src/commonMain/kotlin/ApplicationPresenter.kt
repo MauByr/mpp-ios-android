@@ -7,7 +7,6 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 
-const val rootURL = "https://mobile-api-softwire2.lner.co.uk/v1/"
 
 class ApplicationPresenter : ApplicationContract.Presenter() {
 
