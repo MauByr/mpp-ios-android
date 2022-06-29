@@ -9,6 +9,7 @@ class ViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: Any) {
         presenter.onSearchClicked()
     }
+    
 
     var validTrains : [JourneyTableDataElem] = []
 
@@ -28,7 +29,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         self.registerTableViewCells()
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.validTrains.count
     }
@@ -38,15 +38,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
             cell.setJourney(journey: validTrains[indexPath.row])
             return cell
         }
-        
         return UITableViewCell()
     }
+    
     private func registerTableViewCells() {let textFieldCell = UINib(nibName: "customTableViewCell", bundle: nil)
         self.trainsTable.register(textFieldCell, forCellReuseIdentifier: "customTableViewCell")
-    }
-    
-    private func fillTable(){
-        
     }
 }
 
@@ -54,14 +50,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
 extension ViewController: ApplicationContractView {
     
     func showResults(result: [JourneyTableDataElem]) {
-        print("DATA")
-        print(result.count)
         validTrains = result
         trainsTable.reloadData()
     }
-    
 
-    
     func populateStationList(stations: [String]) {
         // TODO: not yet implemented
     }
