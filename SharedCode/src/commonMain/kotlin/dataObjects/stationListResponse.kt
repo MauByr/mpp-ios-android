@@ -1,11 +1,7 @@
 package com.jetbrains.handson.mpp.mobile.dataObjects
 
-import com.soywiz.klock.DateTime
-import io.ktor.utils.io.pool.*
-import kotlinx.serialization.PrimitiveKind
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 
 typealias NLC = String
@@ -59,7 +55,7 @@ data class BookingMessages(
 @Serializable
 data class BookingMessage(
     val title: String,
-    val message:String,
+    val message: String,
     val messageDismissText: String? = null,
     val showBookingFormOnDismiss: Boolean
 )

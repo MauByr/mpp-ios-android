@@ -7,4 +7,4 @@ interface AppDispatchers {
     val io: CoroutineDispatcher
 }
 
-expect class AppDispatchersImpl(): AppDispatchers
+expect class AppDispatchersImpl() : AppDispatchers
