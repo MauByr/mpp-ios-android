@@ -16,14 +16,41 @@
                     <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wsq-9c-ZSU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-oD-jHq">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WZ7-X2-mKE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button" buttonSize="large"/>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="8na-np-9Rm"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-T3-eip">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pw0-aR-0Hx">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="216"/>
+                                                <color key="backgroundColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" systemColor="linkColor"/>
+                                            </pickerView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4s-Ak-9AH">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="216"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBP-ot-LQd">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="216"/>
+                                                <color key="backgroundColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </pickerView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-oD-jHq">
+                                        <rect key="frame" x="0.0" y="216" width="414" height="232"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Search" buttonSize="large"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="8na-np-9Rm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="tintColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="lcS-hV-RSW" userLabel="trainsTableView">
                                 <rect key="frame" x="0.0" y="448" width="414" height="448"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -31,8 +58,11 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ws0-RM-PHx"/>
+                        <color key="tintColor" systemColor="linkColor"/>
                     </stackView>
                     <connections>
+                        <outlet property="arrivalStationScrollWheel" destination="lBP-ot-LQd" id="Pcy-AL-wZg"/>
+                        <outlet property="departureStationScrollWheel" destination="Pw0-aR-0Hx" id="zdy-eu-a3M"/>
                         <outlet property="fareSearchButton" destination="hKj-oD-jHq" id="uYC-lv-aJE"/>
                         <outlet property="trainsTable" destination="lcS-hV-RSW" id="3EB-oZ-9q5"/>
                     </connections>
@@ -43,6 +73,12 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
