@@ -29,9 +29,9 @@ class customTableViewCell: UITableViewCell {
         arrivalStation.text = journey.endStation.shortName
         arrivalTime.text = journey.getArrivalTime()
         
-        carrier.text = journey.trainOperator
+        carrier.text = (journey.isAGoodTrain() ?"😄":"🤮") + journey.trainOperator
         ticketPrice.text = journey.getPrice()
         
-        journeyTime.text = journey.getJouneyTime()
+        journeyTime.text = journey.getJourneyTime()
     }
 }
