@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import com.jetbrains.handson.mpp.mobile.dataObjects.FareResponse
+import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
 
 class MainActivity : AppCompatActivity(), ApplicationContract.View {
 
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
         TODO("Not yet implemented")
     }
 
-    override fun showResults(result: FareResponse) {
+    override fun showResults(result: List<JourneyTableDataElem>) {
         findViewById<TextView>(R.id.search_results).text = result.toString()
     }
 
