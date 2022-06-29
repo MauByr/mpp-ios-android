@@ -2,8 +2,15 @@ import UIKit
 import SharedCode
 class customTableViewCell: UITableViewCell {
 
-    @IBOutlet var startStation: UILabel!
+    @IBOutlet var departureStation: UILabel!
     @IBOutlet var departureTime: UILabel!
+
+    @IBOutlet var arrivalStation: UILabel!
+    @IBOutlet var arrivalTime: UILabel!
+    
+    @IBOutlet var carrier: UILabel!
+    @IBOutlet var ticketPrice: UILabel!
+    @IBOutlet var journeyTime: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -15,8 +22,16 @@ class customTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func setJourney(journey:Journey){
-        startStation.text = journey.originStation.crs
-        departureTime.text = journey.departureTime
+    func setJourney(journey:JourneyTableDataElem){
+        departureStation.text = journey.startStation.shortName
+        departureTime.text = journey.getStartTime()
+        
+        arrivalStation.text = journey.endStation.shortName
+        arrivalTime.text = journey.getArrivalTime()
+        
+        carrier.text = journey.trainOperator
+        ticketPrice.text = journey.getPrice()
+        
+        journeyTime.text = journey.getJouneyTime()
     }
 }

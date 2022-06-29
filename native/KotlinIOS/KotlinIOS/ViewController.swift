@@ -10,7 +10,7 @@ class ViewController: UIViewController {
         presenter.onSearchClicked()
     }
 
-    var validTrains : [Journey] = []
+    var validTrains : [JourneyTableDataElem] = []
 
     private let presenter: ApplicationContractPresenter = ApplicationPresenter()
     
@@ -53,10 +53,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
 
 extension ViewController: ApplicationContractView {
     
-    func showResults(result: FareResponse) {
+    func showResults(result: [JourneyTableDataElem]) {
         print("DATA")
-        print(result.outboundJourneys.count)
-        validTrains = result.outboundJourneys
+        print(result.count)
+        validTrains = result
         trainsTable.reloadData()
     }
     
