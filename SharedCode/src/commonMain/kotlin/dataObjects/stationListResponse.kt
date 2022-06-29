@@ -68,6 +68,7 @@ data class Journey(
     val destinationStation: Station,
     val departureTime: DateTimeString,
     val arrivalTime: DateTimeString,
+    val arrivalRealTime: DateTimeString? = null,
     val departureRealTime: DateTimeString? = null,
     val status: TrainStatus,
     val primaryTrainOperator: TrainOperator,
