@@ -138,7 +138,7 @@ data class Bulletin(
 data class StationMessage(
     val severity: String,
     val category: String,
-    val messages: List<String>
+    val message: String
 )
 
 @Serializable
