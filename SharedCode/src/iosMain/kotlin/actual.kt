@@ -12,7 +12,7 @@ actual fun platformName(): String {
             UIDevice.currentDevice.systemVersion
 }
 
-actual class AppDispatchersImpl: AppDispatchers {
+actual class AppDispatchersImpl : AppDispatchers {
     @SharedImmutable
     override val main: CoroutineDispatcher = NSQueueDispatcher(dispatch_get_main_queue())
 
@@ -21,7 +21,7 @@ actual class AppDispatchersImpl: AppDispatchers {
 
     class NSQueueDispatcher(
         @SharedImmutable private val dispatchQueue: dispatch_queue_t
-    ): CoroutineDispatcher() {
+    ) : CoroutineDispatcher() {
         override fun dispatch(context: CoroutineContext, block: Runnable) {
             dispatch_async(dispatchQueue) {
                 block.run()

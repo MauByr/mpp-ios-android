@@ -1,17 +1,17 @@
 package com.jetbrains.handson.mpp.mobile
 
-import com.jetbrains.handson.mpp.mobile.dataObjects.FareResponse
+import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
 import kotlinx.coroutines.CoroutineScope
 
 interface ApplicationContract {
     interface View {
         fun setLabel(text: String)
-        fun showAlert(msg:String)
-        fun showResults(result: FareResponse)
-        fun populateStationList(stations :List<String>)
+        fun showAlert(msg: String)
+        fun showResults(result: List<JourneyTableDataElem>)
+        fun populateStationList(stations: List<String>)
     }
 
-    abstract class Presenter: CoroutineScope {
+    abstract class Presenter : CoroutineScope {
         abstract fun onViewTaken(view: View)
         abstract fun onSearchClicked()
     }

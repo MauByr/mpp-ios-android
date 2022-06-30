@@ -1,12 +1,12 @@
 package com.jetbrains.handson.mpp.mobile
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
-import com.jetbrains.handson.mpp.mobile.dataObjects.FareResponse
+import androidx.appcompat.app.AppCompatActivity
+import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
 
 class MainActivity : AppCompatActivity(), ApplicationContract.View {
 
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
         val presenter = ApplicationPresenter()
         presenter.onViewTaken(this)
         setupSearchListener(presenter)
-        populateStationList(listOf<String>("1", "2"))
+        populateStationList(listOf("1", "2"))
     }
 
     override fun setLabel(text: String) {
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
         TODO("Not yet implemented")
     }
 
-    override fun showResults(result: FareResponse) {
+    override fun showResults(result: List<JourneyTableDataElem>) {
         findViewById<TextView>(R.id.search_results).text = result.toString()
     }
 
@@ -36,13 +36,9 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
             ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, stations)
         findViewById<Spinner>(R.id.to_station)?.adapter =
             ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, stations)
-
-//        findViewById<Spinner>(R.id.from_station)?.adapter.also{
-//            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, stations)}
-//
     }
 
-    fun setupSearchListener(presenter: ApplicationPresenter) {
+    private fun setupSearchListener(presenter: ApplicationPresenter) {
         val button: Button = findViewById(R.id.search_button)
         button.setOnClickListener { presenter.onSearchClicked() }
     }
