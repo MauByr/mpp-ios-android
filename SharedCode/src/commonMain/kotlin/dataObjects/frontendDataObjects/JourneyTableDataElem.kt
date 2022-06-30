@@ -2,10 +2,14 @@ package com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects
 
 import com.jetbrains.handson.mpp.mobile.dataObjects.Journey
 import com.jetbrains.handson.mpp.mobile.dataObjects.Station
-import com.soywiz.klock.*
+import com.jetbrains.handson.mpp.mobile.dataObjects.StationInfo
+import com.soywiz.klock.DateFormat
+import com.soywiz.klock.DateTimeTz
+import com.soywiz.klock.parse
 
 const val BEST_TRAIN_OPERATOR = "London North Eastern Railway"
 val ISODateFormat = DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+
 class JourneyTableDataElem(journey: Journey) {
     val startStation: JourneyStation = JourneyStation(journey.originStation)
     private val startTimeRaw: DateTimeTz =
@@ -19,7 +23,7 @@ class JourneyTableDataElem(journey: Journey) {
     val trainOperator: String = journey.primaryTrainOperator.name
     fun isAGoodTrain() = (trainOperator == BEST_TRAIN_OPERATOR)
     fun getPrice(): String {
-        if(price==null){
+        if (price == null) {
             return "Unavailable"
         }
         return "£${price / 100}.${price % 100}"
@@ -40,6 +44,14 @@ class JourneyTableDataElem(journey: Journey) {
 }
 
 class JourneyStation(station: Station) {
+    constructor(stationInfo: StationInfo) : this(
+        Station(
+            stationInfo.name ?: "Unknown",
+            stationInfo.crs ?: "UNKWN",
+            stationInfo.nlc ?: "000"
+        )
+    )
+
     val shortName: String = station.displayName.replace("[aeiou]".toRegex(), "")
     val fullName: String = station.displayName
     val crsCode: String = station.crs
