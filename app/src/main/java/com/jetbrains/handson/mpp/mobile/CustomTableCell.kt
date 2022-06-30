@@ -7,14 +7,14 @@ import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyT
 
 class CustomTableCell(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun fillInfo(journey: JourneyTableDataElem) {
-        this.itemView.findViewById<TextView>(R.id.carrier).text = journey.trainOperator
-        this.itemView.findViewById<TextView>(R.id.depStation).text = journey.startStation.shortName
-        this.itemView.findViewById<TextView>(R.id.depTime).text = journey.getStartTime()
-        this.itemView.findViewById<TextView>(R.id.arrStation).text = journey.endStation.shortName
-        this.itemView.findViewById<TextView>(R.id.arrTime).text = journey.getArrivalTime()
-        this.itemView.findViewById<TextView>(R.id.price).text = journey.getPrice()
-        this.itemView.findViewById<TextView>(R.id.journeyTime).text = journey.getJourneyTime()
-
+        with(itemView) {
+            findViewById<TextView>(R.id.carrier).text = journey.trainOperator
+            findViewById<TextView>(R.id.depStation).text = journey.startStation.shortName
+            findViewById<TextView>(R.id.depTime).text = journey.getStartTime()
+            findViewById<TextView>(R.id.arrStation).text = journey.endStation.shortName
+            findViewById<TextView>(R.id.arrTime).text = journey.getArrivalTime()
+            findViewById<TextView>(R.id.price).text = journey.getPrice()
+            findViewById<TextView>(R.id.journeyTime).text = journey.getJourneyTime()
+        }
     }
-
 }
