@@ -1,5 +1,6 @@
 package com.jetbrains.handson.mpp.mobile
 
+import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyStation
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
@@ -40,7 +41,7 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
     private fun getStationList() {
         launch {
             APIService.getStationList().let { stationList ->
-                val stationNames = stationList?.stations?.mapNotNull { it.name }
+                val stationNames = stationList?.stations?.map { JourneyStation(it) }?.filter { it.crsCode!="" }
                 stationNames?.let { view?.populateStationList(it) }
             }
         }
