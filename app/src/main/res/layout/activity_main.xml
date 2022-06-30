@@ -27,27 +27,27 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:spinnerMode="dropdown"/>
+            android:spinnerMode="dropdown" />
 
         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
             android:id="@+id/to_station"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Search"/>
-
+            android:text="Search" />
     </LinearLayout>
 
-    <TextView
+    <view
         android:id="@+id/search_results"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Results"/>
+        class="androidx.recyclerview.widget.RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="362dp"
+        app:layoutManager="LinearLayoutManager" />
 
 
 </LinearLayout>
