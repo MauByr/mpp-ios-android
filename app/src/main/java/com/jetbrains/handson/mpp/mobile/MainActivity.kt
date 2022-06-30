@@ -1,11 +1,9 @@
 package com.jetbrains.handson.mpp.mobile
 
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
 
 class MainActivity : AppCompatActivity(), ApplicationContract.View {
@@ -16,7 +14,12 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
         val presenter = ApplicationPresenter()
         presenter.onViewTaken(this)
         setupSearchListener(presenter)
+        setupTable()
         populateStationList(listOf("1", "2"))
+    }
+
+    private fun setupTable() {
+        findViewById<RecyclerView>(R.id.search_results)
     }
 
     override fun setLabel(text: String) {
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
     }
 
     override fun showResults(result: List<JourneyTableDataElem>) {
-        findViewById<TextView>(R.id.search_results).text = result.toString()
+        findViewById<RecyclerView>(R.id.search_results).adapter = SearchResultAdapter(result)//.text = result.toString()
     }
 
     override fun populateStationList(stations: List<String>) {
