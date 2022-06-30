@@ -57,6 +57,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         
         self.arrivalStationScrollWheel.dataSource = self
         self.arrivalStationScrollWheel.delegate = self
+        
         populateStationList(stations: validStations)
     }
     
@@ -74,7 +75,6 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 }
 
 extension ViewController: ApplicationContractView {
-    
     func showResults(result: [JourneyTableDataElem]) {
         validTrains = result
         trainsTable.reloadData()
