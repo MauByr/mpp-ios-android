@@ -14,12 +14,7 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
         val presenter = ApplicationPresenter()
         presenter.onViewTaken(this)
         setupSearchListener(presenter)
-        setupTable()
         populateStationList(listOf("1", "2"))
-    }
-
-    private fun setupTable() {
-        findViewById<RecyclerView>(R.id.search_results)
     }
 
     override fun setLabel(text: String) {
