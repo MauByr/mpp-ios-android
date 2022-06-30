@@ -62,7 +62,7 @@ class JourneyStation(station: Station) {
     constructor(stationInfo: StationInfo) : this(
         Station(
             stationInfo.name ?: "Unknown",
-            stationInfo.crs ?: "UNKWN",
+            stationInfo.crs ?: "",
             stationInfo.nlc ?: "000"
         )
     )
@@ -70,4 +70,7 @@ class JourneyStation(station: Station) {
     val shortName: String = station.displayName.replace("[aeiou]".toRegex(), "")
     val fullName: String = station.displayName
     val crsCode: String = station.crs
+    override fun toString(): String {
+        return fullName
+    }
 }
