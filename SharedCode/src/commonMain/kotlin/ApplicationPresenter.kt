@@ -24,9 +24,13 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
         getStationList()
     }
 
-    override fun onSearchClicked() {
+    override fun onSearchClicked(
+        initialStation: String,
+        ultimateStation: String,
+        timeUTCString: String? //TODO: implement later
+    ) {
         launch {
-            APIService.getJourneyList(JourneyQuery("KGX", "EDB"))?.let { journey ->
+            APIService.getJourneyList(JourneyQuery(initialStation, ultimateStation))?.let { journey ->
                 println(journey)
                 view?.showResults(journey.outboundJourneys.map { elem -> JourneyTableDataElem(elem) })
             }
