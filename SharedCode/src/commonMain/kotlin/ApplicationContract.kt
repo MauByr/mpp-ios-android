@@ -1,5 +1,6 @@
 package com.jetbrains.handson.mpp.mobile
 
+import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyStation
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
 import kotlinx.coroutines.CoroutineScope
 
@@ -8,7 +9,7 @@ interface ApplicationContract {
         fun setLabel(text: String)
         fun showAlert(msg: String)
         fun showResults(result: List<JourneyTableDataElem>)
-        fun populateStationList(stations: List<String>)
+        fun populateStationList(stations: List<JourneyStation>)
     }
 
     abstract class Presenter : CoroutineScope {
