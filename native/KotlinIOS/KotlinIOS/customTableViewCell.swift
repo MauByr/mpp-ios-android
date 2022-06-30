@@ -22,6 +22,7 @@ class customTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     func setJourney(journey:JourneyTableDataElem){
         departureStation.text = journey.startStation.shortName
         departureTime.text = journey.getStartTime()
