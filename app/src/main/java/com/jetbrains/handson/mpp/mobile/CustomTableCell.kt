@@ -10,11 +10,11 @@ class CustomTableCell(itemView: View) : RecyclerView.ViewHolder(itemView) {
         with(itemView) {
             findViewById<TextView>(R.id.carrier).text = journey.trainOperator
             findViewById<TextView>(R.id.depStation).text = journey.startStation.shortName
-            findViewById<TextView>(R.id.depTime).text = journey.getStartTime()
+            findViewById<TextView>(R.id.depTime).text = journey.startTime
             findViewById<TextView>(R.id.arrStation).text = journey.endStation.shortName
-            findViewById<TextView>(R.id.arrTime).text = journey.getArrivalTime()
-            findViewById<TextView>(R.id.price).text = journey.getPrice()
-            findViewById<TextView>(R.id.journeyTime).text = journey.getJourneyTime()
+            findViewById<TextView>(R.id.arrTime).text = journey.endTime
+            findViewById<TextView>(R.id.price).text = journey.ticketCost
+            findViewById<TextView>(R.id.journeyTime).text = journey.journeyTime
         }
     }
 }

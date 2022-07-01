@@ -33,28 +33,6 @@ class JourneyTableDataElem(journey: Journey) {
     val trainOperator: String = journey.primaryTrainOperator.name
     fun isAGoodTrain() = (trainOperator == BEST_TRAIN_OPERATOR)
 
-    @Deprecated(level = DeprecationLevel.WARNING, message = "Use ticketCost Property instead")
-    fun getPrice(): String {
-        if (price == null) {
-            return "Unavailable"
-        }
-        return "£${price / 100}.${price % 100}"
-    }
-
-    @Deprecated(level = DeprecationLevel.WARNING, message = "Use startTime Property instead")
-    fun getStartTime(): String {
-        return DateFormat("HH:mm").format(startTimeRaw)
-    }
-
-    @Deprecated(level = DeprecationLevel.WARNING, message = "Use endTime Property instead")
-    fun getArrivalTime(): String {
-        return DateFormat("HH:mm").format(endTimeRaw)
-    }
-
-    @Deprecated(level = DeprecationLevel.WARNING, message = "Use journeyTime Property instead")
-    fun getJourneyTime(): String {
-        return "${journeyTimeMins / 60}:${journeyTimeMins % 60}"
-    }
 
 }
 
