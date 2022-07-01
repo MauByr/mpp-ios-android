@@ -74,6 +74,11 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 }
 
 extension ViewController: ApplicationContractView {
+    func populateStationList(stations: [JourneyStation]) {
+        // TODO: do properly
+        populateStationList(stations: stations.map({ station in station.crsCode}))
+    }
+    
     func showResults(result: [JourneyTableDataElem]) {
         validTrains = result
         trainsTable.reloadData()
