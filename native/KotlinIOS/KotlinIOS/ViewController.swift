@@ -2,19 +2,18 @@ import UIKit
 import SharedCode
 
 class ViewController: UIViewController {
-    
     @IBOutlet var departureStationScrollWheel: UIPickerView!
     @IBOutlet var arrivalStationScrollWheel: UIPickerView!
 
     @IBOutlet var fareSearchButton: UIButton!
     @IBOutlet var trainsTable: UITableView!
 
-    @IBAction func buttonPressed(_ sender: Any) {
+    @IBAction func trainSearchButtonPressed(_ sender: Any) {
         presenter.onSearchClicked()
     }
     
-    var validStations : [String] = []
-    var validTrains : [JourneyTableDataElem] = []
+    var stationList: [String] = []
+    var validTrains: [JourneyTableDataElem] = []
 
     private let presenter: ApplicationContractPresenter = ApplicationPresenter()
     
@@ -58,7 +57,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         self.arrivalStationScrollWheel.dataSource = self
         self.arrivalStationScrollWheel.delegate = self
         
-        populateStationList(stations: validStations)
+        populateStationList(stations: stationList)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -66,11 +65,11 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return validStations.count
+        return stationList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-         return validStations[row]
+         return stationList[row]
     }
 }
 
@@ -81,10 +80,9 @@ extension ViewController: ApplicationContractView {
     }
 
     func populateStationList(stations: [String]) {
-        validStations = stations
+        stationList = stations
         departureStationScrollWheel.reloadAllComponents()
         arrivalStationScrollWheel.reloadAllComponents()
-        print(validStations)
     }
     
     func showAlert(msg: String) {
