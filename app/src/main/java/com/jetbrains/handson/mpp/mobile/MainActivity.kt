@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyStation
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ApplicationContract.View {
     private var departureSpinner : Spinner? = null
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
     }
 
     override fun setLabel(text: String) {
-        findViewById<TextView>(R.id.main_text).text = text
+        main_text.text = text
     }
 
     override fun showAlert(msg: String) {
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
     }
 
     override fun showResults(result: List<JourneyTableDataElem>) {
-        findViewById<RecyclerView>(R.id.search_results).adapter = SearchResultAdapter(result)//.text = result.toString()
+        search_results.adapter = SearchResultAdapter(result)//.text = result.toString()
     }
 
     override fun populateStationList(stations: List<JourneyStation>) {
