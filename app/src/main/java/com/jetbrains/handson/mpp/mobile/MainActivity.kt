@@ -2,10 +2,8 @@ package com.jetbrains.handson.mpp.mobile
 
 import android.os.Bundle
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyStation
-import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.ArrayAdapter
 import android.widget.Button
