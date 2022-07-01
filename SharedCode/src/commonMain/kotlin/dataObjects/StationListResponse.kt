@@ -38,8 +38,8 @@ data class FareResponse(
     val numberOfAdults: Int,
     val numberOfChildren: Int,
     val outboundJourneys: List<Journey>,
-    val nextOutboundQuery: String,
-    val previousOutboundQuery: String,
+    val nextOutboundQuery: String? = null,
+    val previousOutboundQuery: String? = null,
     val nextInboundQuery: String? = null,
     val previousInboundQuery: String? = null,
     val bookingMessages: BookingMessages
