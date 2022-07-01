@@ -121,7 +121,6 @@
                 <outlet property="departureStation" destination="GKK-yf-6lY" id="R3d-CG-NZE"/>
                 <outlet property="departureTime" destination="cwB-rp-UJS" id="j4t-X4-MQj"/>
                 <outlet property="journeyTime" destination="rzj-3O-R6y" id="nLV-kp-tps"/>
-                <outlet property="operator" destination="DH8-l0-zfe" id="i2H-1d-EJQ"/>
                 <outlet property="ticketPrice" destination="Lmg-us-8YH" id="ek5-iL-tc4"/>
                 <outlet property="trainOperator" destination="DH8-l0-zfe" id="cTT-ig-25y"/>
             </connections>

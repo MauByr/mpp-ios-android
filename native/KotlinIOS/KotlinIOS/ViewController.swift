@@ -9,7 +9,7 @@ class ViewController: UIViewController {
     @IBOutlet var trainsTable: UITableView!
 
     @IBAction func trainSearchButtonPressed(_ sender: Any) {
-        presenter.onSearchClicked()
+        presenter.onSearchClicked(initialStation: "KGX", ultimateStation: "EDB", timeUTCString: nil)
     }
     
     var stationList: [String] = []
