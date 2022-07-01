@@ -11,11 +11,11 @@ class TicketInfoCell(itemView: View) : RecyclerView.ViewHolder(itemView) {
         with(itemView) {
             carrier.text = journey.trainOperator
             depStation.text = journey.startStation.shortName
-            depTime.text = journey.getStartTime()
+            depTime.text = journey.startTime
             arrStation.text = journey.endStation.shortName
-            arrTime.text = journey.getArrivalTime()
-            price.text = journey.getPrice()
-            journeyTime.text = journey.getJourneyTime()
+            arrTime.text = journey.endTime
+            price.text = journey.ticketCost
+            journeyTime.text = journey.journeyTime
         }
     }
 }
