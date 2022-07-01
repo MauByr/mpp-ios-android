@@ -148,11 +148,6 @@ data class TrainOperator(
 )
 
 @Serializable
-enum class TrainStatus {
-    normal, delayed, cancelled, fully_reserved
-}
-
-@Serializable
 enum class TicketType {
     @SerialName("single")
     Single,
@@ -160,6 +155,12 @@ enum class TicketType {
     @SerialName("return")
     Return
 }
+
+@Serializable
+enum class TrainStatus {
+    normal, delayed, cancelled, fully_reserved
+}
+
 
 @Serializable
 data class Station(
