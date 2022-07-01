@@ -12,16 +12,28 @@ val ISODateFormat = DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
 
 class JourneyTableDataElem(journey: Journey) {
     val startStation: JourneyStation = JourneyStation(journey.originStation)
-    private val startTimeRaw: DateTimeTz =
-        ISODateFormat.parse(journey.departureTime)
+
+    private val startTimeRaw: DateTimeTz = ISODateFormat.parse(journey.departureTime)
+    val startTime = DateFormat("HH:mm").format(startTimeRaw)
+
     val endStation: JourneyStation = JourneyStation(journey.destinationStation)
+
     private val endTimeRaw: DateTimeTz = ISODateFormat.parse(journey.arrivalTime)
-    private val journeyTime: Int = journey.journeyDurationInMinutes.toInt()
+    val endTime = DateFormat("HH:mm").format(endTimeRaw)
+
+    private val journeyTimeMins: Int = journey.journeyDurationInMinutes.toInt()
+    val journeyTime = "${journeyTimeMins / 60}:${journeyTimeMins % 60}"
+
     val changes: Int = (journey.legs.size - 1)
+
     private val price: Int? =
         (journey.tickets.minBy { it.priceInPennies }?.priceInPennies)
+    val ticketCost = if (price == null) "Unavailable" else "£${price / 100}.${price % 100}"
+
     val trainOperator: String = journey.primaryTrainOperator.name
     fun isAGoodTrain() = (trainOperator == BEST_TRAIN_OPERATOR)
+
+    @Deprecated(level = DeprecationLevel.WARNING, message = "Use ticketCost Property instead")
     fun getPrice(): String {
         if (price == null) {
             return "Unavailable"
@@ -29,16 +41,19 @@ class JourneyTableDataElem(journey: Journey) {
         return "£${price / 100}.${price % 100}"
     }
 
+    @Deprecated(level = DeprecationLevel.WARNING, message = "Use startTime Property instead")
     fun getStartTime(): String {
         return DateFormat("HH:mm").format(startTimeRaw)
     }
 
+    @Deprecated(level = DeprecationLevel.WARNING, message = "Use endTime Property instead")
     fun getArrivalTime(): String {
         return DateFormat("HH:mm").format(endTimeRaw)
     }
 
+    @Deprecated(level = DeprecationLevel.WARNING, message = "Use journeyTime Property instead")
     fun getJourneyTime(): String {
-        return "${journeyTime / 60}:${journeyTime % 60}"
+        return "${journeyTimeMins / 60}:${journeyTimeMins % 60}"
     }
 
 }

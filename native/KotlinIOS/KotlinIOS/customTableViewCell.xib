@@ -75,13 +75,25 @@
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="7Yw-hD-Qgc"/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carrier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH8-l0-zfe">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bCn-l1-6bb">
                                 <rect key="frame" x="0.0" y="73.5" width="310" height="36.5"/>
-                                <color key="backgroundColor" systemColor="secondaryLabelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carrier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH8-l0-zfe">
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="36.5"/>
+                                        <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="journeyTime" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzj-3O-R6y" userLabel="journeyTime">
+                                        <rect key="frame" x="155" y="0.0" width="155" height="36.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="IdD-sG-GDL"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Evr-n0-gwM"/>
                     </stackView>
@@ -103,6 +115,15 @@
                 <constraint firstItem="H2p-sc-9uM" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" id="Ugh-Hn-XMx"/>
                 <constraint firstItem="njF-e1-oar" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" id="bXO-bF-OSv"/>
             </constraints>
+            <connections>
+                <outlet property="arrivalStation" destination="5Wx-tG-m4G" id="m7h-Wt-FSW"/>
+                <outlet property="arrivalTime" destination="iME-xm-txX" id="I9Y-Jg-Lhg"/>
+                <outlet property="departureStation" destination="GKK-yf-6lY" id="R3d-CG-NZE"/>
+                <outlet property="departureTime" destination="cwB-rp-UJS" id="j4t-X4-MQj"/>
+                <outlet property="journeyTime" destination="rzj-3O-R6y" id="nLV-kp-tps"/>
+                <outlet property="ticketPrice" destination="Lmg-us-8YH" id="ek5-iL-tc4"/>
+                <outlet property="trainOperator" destination="DH8-l0-zfe" id="cTT-ig-25y"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="72.991071428571431"/>
         </tableViewCell>
     </objects>

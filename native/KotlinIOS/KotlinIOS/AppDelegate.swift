@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  KotlinIOS
-//
-//  Created by Evgeny Petrenko on 02.08.2019.
-//  Copyright © 2019 Evgeny Petrenko. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
