@@ -38,6 +38,6 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
 
     private fun setupSearchListener(presenter: ApplicationPresenter) {
         val button: Button = findViewById(R.id.search_button)
-        button.setOnClickListener { presenter.onSearchClicked() }
+        button.setOnClickListener { presenter.onSearchClicked(timeUTCString = null) }
     }
 }
