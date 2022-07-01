@@ -8,7 +8,7 @@ class customTableViewCell: UITableViewCell {
     @IBOutlet var arrivalStation: UILabel!
     @IBOutlet var arrivalTime: UILabel!
     
-    @IBOutlet var carrier: UILabel!
+    @IBOutlet var trainOperator: UILabel!
     @IBOutlet var ticketPrice: UILabel!
     @IBOutlet var journeyTime: UILabel!
     
@@ -25,14 +25,14 @@ class customTableViewCell: UITableViewCell {
     
     func setJourney(journey:JourneyTableDataElem){
         departureStation.text = journey.startStation.shortName
-        departureTime.text = journey.getStartTime()
+        departureTime.text = journey.startTime
         
         arrivalStation.text = journey.endStation.shortName
-        arrivalTime.text = journey.getArrivalTime()
+        arrivalTime.text = journey.endTime
         
-        carrier.text = (journey.isAGoodTrain() ?"😄":"🤮") + journey.trainOperator
-        ticketPrice.text = journey.getPrice()
+        trainOperator.text = (journey.isAGoodTrain() ? "😄" : "🤮") + journey.trainOperator
+        ticketPrice.text = journey.ticketCost
         
-        journeyTime.text = journey.getJourneyTime()
+        journeyTime.text = journey.journeyTime
     }
 }
