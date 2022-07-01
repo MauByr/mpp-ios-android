@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -17,7 +18,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:background="#B6AEAE"
+                android:background="@color/ticketInfoStationColour"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -25,13 +26,13 @@
                     android:id="@+id/depStation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="depStation" />
+                    tools:text="depStation" />
 
                 <TextView
                     android:id="@+id/depTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="depTime" />
+                    tools:text="depTime" />
 
             </LinearLayout>
 
@@ -41,14 +42,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="->"
-                android:textAlignment="center" />
+                android:text="@string/rightArrowSymbol"
+                tools:textAlignment="center" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:background="#B6AEAE"
+                android:background="@color/ticketInfoStationColour"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -56,13 +57,13 @@
                     android:id="@+id/arrStation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="arrStation" />
+                    tools:text="arrStation" />
 
                 <TextView
                     android:id="@+id/arrTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="arrTime" />
+                    tools:text="arrTime" />
 
             </LinearLayout>
 
@@ -72,8 +73,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:text="£££"
-                android:textAlignment="center" />
+                tools:text="£££"
+                tools:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout
@@ -87,18 +88,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#ED1919"
-                android:text="carrier" />
+                tools:text="@string/ticketInfoOperator" />
 
             <TextView
                 android:id="@+id/journeyTime"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:background="#ED1919"
-                android:text="14:46"
-                android:textAlignment="textEnd" />
+                android:background="@color/LNERRed"
+                tools:text="14:46"
+                tools:textAlignment="textEnd" />
         </LinearLayout>
-
 
     </LinearLayout>
 </FrameLayout>

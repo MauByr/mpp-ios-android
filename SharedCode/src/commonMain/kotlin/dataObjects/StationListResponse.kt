@@ -127,7 +127,7 @@ data class UpgradeDetails(
 @Serializable
 data class Bulletin(
     val id: Int,
-    val title: String = "",//wrong in spec
+    val title: String? = null, //marked as required in spec, but not always sent
     val description: String,
     val category: String? = null,
     val url: String? = null,
