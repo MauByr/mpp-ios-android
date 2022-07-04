@@ -5,4 +5,10 @@
     <color name="colorAccent">#D81B60</color>
     <color name="ticketInfoStationColour">#B6AEAE</color>
     <color name="LNERRed">#ED1919</color>
+    <color name="InternationalOrangeEngineering">#b80000</color>
+    <color name="Linen">#f9ebe0</color>
+    <color name="DarkJungleGreen">#071e22</color>
+    <color name="MyrtleGreen">#1D7874</color>
+    <color name="WintergreenDream">#679289</color>
+
 </resources>
