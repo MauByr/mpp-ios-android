@@ -38,8 +38,8 @@ data class FareResponse(
     val numberOfAdults: Int,
     val numberOfChildren: Int,
     val outboundJourneys: List<Journey>,
-    val nextOutboundQuery: String,
-    val previousOutboundQuery: String,
+    val nextOutboundQuery: String? = null,
+    val previousOutboundQuery: String? = null,
     val nextInboundQuery: String? = null,
     val previousInboundQuery: String? = null,
     val bookingMessages: BookingMessages
@@ -148,11 +148,6 @@ data class TrainOperator(
 )
 
 @Serializable
-enum class TrainStatus {
-    normal, delayed, cancelled, fully_reserved
-}
-
-@Serializable
 enum class TicketType {
     @SerialName("single")
     Single,
@@ -160,6 +155,12 @@ enum class TicketType {
     @SerialName("return")
     Return
 }
+
+@Serializable
+enum class TrainStatus {
+    normal, delayed, cancelled, fully_reserved
+}
+
 
 @Serializable
 data class Station(

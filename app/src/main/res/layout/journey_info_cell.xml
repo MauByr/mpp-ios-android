@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@color/ticketInfoStationColour"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/depStation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="depStation" />
+
+                <TextView
+                    android:id="@+id/depTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="depTime" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/rightArrowSymbol"
+                tools:textAlignment="center" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@color/ticketInfoStationColour"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/arrStation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="arrStation" />
+
+                <TextView
+                    android:id="@+id/arrTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="arrTime" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                tools:text="£££"
+                tools:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/carrier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ED1919"
+                tools:text="@string/ticketInfoOperator" />
+
+            <TextView
+                android:id="@+id/journeyTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:background="@color/LNERRed"
+                tools:text="14:46"
+                tools:textAlignment="textEnd" />
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>
