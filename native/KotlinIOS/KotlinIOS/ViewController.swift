@@ -109,7 +109,10 @@ extension ViewController: ApplicationContractView {
     }
 
     func showAlert(msg: String) {
-        // TODO: not yet implemented
+        searchStatusBar.text = ""
+        let alert = UIAlertController(title: "Warning", message: msg, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func showResults(result: String) {
