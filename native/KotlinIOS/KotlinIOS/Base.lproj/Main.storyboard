@@ -29,6 +29,7 @@
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4s-Ak-9AH">
                                                 <rect key="frame" x="138" y="0.0" width="138" height="216"/>
+                                                <color key="backgroundColor" red="0.23004108670000001" green="0.46287977699999999" blue="0.45098185540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -40,13 +41,22 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-oD-jHq">
-                                        <rect key="frame" x="0.0" y="216" width="414" height="232"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Search" buttonSize="large"/>
+                                        <rect key="frame" x="0.0" y="216" width="414" height="182"/>
+                                        <color key="backgroundColor" red="0.23004108670000001" green="0.46287977699999999" blue="0.45098185540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="trainSearchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nLG-Nm-bRW"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQw-tL-k62">
+                                        <rect key="frame" x="0.0" y="398" width="414" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <color key="tintColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,6 +74,7 @@
                         <outlet property="arrivalStationScrollWheel" destination="lBP-ot-LQd" id="Pcy-AL-wZg"/>
                         <outlet property="departureStationScrollWheel" destination="Pw0-aR-0Hx" id="zdy-eu-a3M"/>
                         <outlet property="fareSearchButton" destination="hKj-oD-jHq" id="uYC-lv-aJE"/>
+                        <outlet property="searchStatusBar" destination="XQw-tL-k62" id="cBd-a2-gMo"/>
                         <outlet property="trainsTable" destination="lcS-hV-RSW" id="3EB-oZ-9q5"/>
                     </connections>
                 </viewController>
@@ -73,6 +84,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

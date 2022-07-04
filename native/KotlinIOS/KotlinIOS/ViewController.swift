@@ -6,9 +6,14 @@ class ViewController: UIViewController {
     @IBOutlet var arrivalStationScrollWheel: UIPickerView!
 
     @IBOutlet var fareSearchButton: UIButton!
+    @IBOutlet var searchStatusBar: UILabel!
     @IBOutlet var trainsTable: UITableView!
 
     @IBAction func trainSearchButtonPressed(_ sender: Any) {
+        searchStatusBar.text = "searching ..."
+        validTrains = []
+        trainsTable.reloadData()
+        
         let initialStationIndex = departureStationScrollWheel.selectedRow(inComponent: 0)
         let finalStationIndex = arrivalStationScrollWheel.selectedRow(inComponent: 0)
         presenter.onSearchClicked(initialStation: stationList[initialStationIndex],
@@ -81,6 +86,7 @@ extension ViewController: ApplicationContractView {
     func populateStationList(stations: [JourneyStation]) {
         // TODO: do properly
         populateStationList(stations: stations.map({ station in station.crsCode}))
+        
     }
     
     func populateStationList(stations: [String]) {
@@ -91,7 +97,14 @@ extension ViewController: ApplicationContractView {
     
     func showResults(result: [JourneyTableDataElem]) {
         validTrains = result
+        if validTrains.isEmpty {
+            searchStatusBar.text = "no trains available"
+        }
+        else {
+            searchStatusBar.text = ""
+        }
         trainsTable.reloadData()
+        
     }
 
     func showAlert(msg: String) {
