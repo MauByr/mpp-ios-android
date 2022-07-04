@@ -31,9 +31,16 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
         timeUTCString: String? //TODO: implement later
     ) {
         launch {
-            APIService.getJourneyList(JourneyQuery(initialStation, ultimateStation))?.let { journey ->
-                println(journey)
-                view?.showResults(journey.outboundJourneys.map { elem -> JourneyTableDataElem(elem) })
+            APIService.getJourneyList(JourneyQuery(initialStation, ultimateStation))
+                ?.let { journey ->
+                    println(journey)
+                    view?.showResults(journey.outboundJourneys.map { elem ->
+                        JourneyTableDataElem(
+                            elem
+                        )
+                    })
+                } ?: run {
+                view?.showAlert("Something went wrong")
             }
         }
     }

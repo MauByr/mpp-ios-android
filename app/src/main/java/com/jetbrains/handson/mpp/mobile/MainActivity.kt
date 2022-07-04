@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
         button.setOnClickListener {
             searchStatus.text = getString(R.string.searching_text)
             searchStatus.visibility = View.VISIBLE
+            //TODO:clear current results
             val fromStation = departureSpinner?.selectedItem as JourneyStation?
             val toStation = arrivalSpinner?.selectedItem as JourneyStation?
             if (fromStation != null && toStation != null) {
