@@ -37,14 +37,31 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/arrow"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center"
-                android:text="@string/rightArrowSymbol"
-                tools:textAlignment="center" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/changes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    tools:text="AAAAAAAAAA"
+                    tools:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/arrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/rightArrowSymbol"
+                    tools:textAlignment="center" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
