@@ -25,7 +25,7 @@ class JourneyTableDataElem(journey: Journey) {
     val journeyTime =
         "${journeyTimeMins / 60}:${(journeyTimeMins % 60).toString().padStart(2, '0')}"
 
-    val changes: Int = (journey.legs.size - 1)
+    val changes: String = (journey.legs.size - 1).let { if (it == 0) "Direct" else "$it changes" }
 
     private val price: Int? =
         (journey.tickets.minBy { it.priceInPennies }?.priceInPennies)
