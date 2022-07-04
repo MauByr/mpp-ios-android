@@ -22,17 +22,19 @@ class JourneyTableDataElem(journey: Journey) {
     val endTime = DateFormat("HH:mm").format(endTimeRaw)
 
     private val journeyTimeMins: Int = journey.journeyDurationInMinutes.toInt()
-    val journeyTime = "${journeyTimeMins / 60}:${journeyTimeMins % 60}"
+    val journeyTime =
+        "${journeyTimeMins / 60}:${(journeyTimeMins % 60).toString().padStart(2, '0')}"
 
     val changes: Int = (journey.legs.size - 1)
 
     private val price: Int? =
         (journey.tickets.minBy { it.priceInPennies }?.priceInPennies)
-    val ticketCost = if (price == null) "Unavailable" else "£${price / 100}.${price % 100}"
+    val ticketCost = if (price == null) "Unavailable" else "£${price / 100}.${
+        (price % 100).toString().padStart(2, '0')
+    }"
 
     val trainOperator: String = journey.primaryTrainOperator.name
     fun isAGoodTrain() = (trainOperator == BEST_TRAIN_OPERATOR)
-
 
 }
 
