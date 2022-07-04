@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/Linen"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -18,7 +19,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:background="@color/ticketInfoStationColour"
+                android:background="@color/WintergreenDream"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -49,7 +50,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:background="@color/ticketInfoStationColour"
+                android:background="@color/MyrtleGreen"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -87,7 +88,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ED1919"
+                android:background="@color/InternationalOrangeEngineering"
+                android:textColor="@color/Linen"
                 tools:text="@string/ticketInfoOperator" />
 
             <TextView
@@ -95,7 +97,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:background="@color/LNERRed"
+                android:background="@color/InternationalOrangeEngineering"
+                android:textColor="@color/Linen"
                 tools:text="14:46"
                 tools:textAlignment="textEnd" />
         </LinearLayout>

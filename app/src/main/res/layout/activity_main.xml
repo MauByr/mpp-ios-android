@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/Linen"
+    android:textColor="@color/DarkJungleGreen">
 
-    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -23,7 +26,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
@@ -43,8 +46,25 @@
                 android:id="@+id/search_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/WintergreenDream"
                 android:text="@string/searchButtonText" />
+
         </LinearLayout>
+
+        <TextView
+
+            android:id="@+id/searchStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/InternationalOrangeEngineering"
+            android:text="AFSDHDFASIHDAFSHADFS"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/Linen"
+            android:textSize="24sp"
+            android:typeface="sans"
+            android:visibility="invisible"
+            tools:text="Loading..." />
 
         <view
             android:id="@+id/search_results"
@@ -52,7 +72,6 @@
             android:layout_width="match_parent"
             android:layout_height="362dp"
             app:layoutManager="LinearLayoutManager" />
-
 
     </LinearLayout>
 </ScrollView>
