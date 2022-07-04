@@ -24,8 +24,8 @@
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pw0-aR-0Hx">
                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="216"/>
-                                                <color key="backgroundColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="tintColor" systemColor="linkColor"/>
+                                                <color key="backgroundColor" red="0.96803897620000001" green="0.92232555149999995" blue="0.88234633210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4s-Ak-9AH">
                                                 <rect key="frame" x="138" y="0.0" width="138" height="216"/>
@@ -36,7 +36,7 @@
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBP-ot-LQd">
                                                 <rect key="frame" x="276" y="0.0" width="138" height="216"/>
-                                                <color key="backgroundColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.96803897620000001" green="0.92232555149999995" blue="0.88234633210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </pickerView>
                                         </subviews>
                                     </stackView>

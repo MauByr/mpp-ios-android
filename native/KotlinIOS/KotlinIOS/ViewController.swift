@@ -8,6 +8,7 @@ class ViewController: UIViewController {
     @IBOutlet var fareSearchButton: UIButton!
     @IBOutlet var searchStatusBar: UILabel!
     @IBOutlet var trainsTable: UITableView!
+    
 
     @IBAction func trainSearchButtonPressed(_ sender: Any) {
         searchStatusBar.text = "searching ..."
