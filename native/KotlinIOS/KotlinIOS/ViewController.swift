@@ -9,7 +9,11 @@ class ViewController: UIViewController {
     @IBOutlet var trainsTable: UITableView!
 
     @IBAction func trainSearchButtonPressed(_ sender: Any) {
-        presenter.onSearchClicked(initialStation: "KGX", ultimateStation: "EDB", timeUTCString: nil)
+        let initialStationIndex = departureStationScrollWheel.selectedRow(inComponent: 0)
+        let finalStationIndex = arrivalStationScrollWheel.selectedRow(inComponent: 0)
+        presenter.onSearchClicked(initialStation: stationList[initialStationIndex],
+                                  ultimateStation: stationList[finalStationIndex],
+                                  timeUTCString: nil)
     }
     
     var stationList: [String] = []
@@ -79,17 +83,17 @@ extension ViewController: ApplicationContractView {
         populateStationList(stations: stations.map({ station in station.crsCode}))
     }
     
-    func showResults(result: [JourneyTableDataElem]) {
-        validTrains = result
-        trainsTable.reloadData()
-    }
-
     func populateStationList(stations: [String]) {
         stationList = stations
         departureStationScrollWheel.reloadAllComponents()
         arrivalStationScrollWheel.reloadAllComponents()
     }
     
+    func showResults(result: [JourneyTableDataElem]) {
+        validTrains = result
+        trainsTable.reloadData()
+    }
+
     func showAlert(msg: String) {
         // TODO: not yet implemented
     }
