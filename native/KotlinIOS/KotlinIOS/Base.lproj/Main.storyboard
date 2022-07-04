@@ -27,10 +27,10 @@
                                                 <color key="backgroundColor" red="0.96803897620000001" green="0.92232555149999995" blue="0.88234633210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                             </pickerView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4s-Ak-9AH">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4s-Ak-9AH">
                                                 <rect key="frame" x="138" y="0.0" width="138" height="216"/>
                                                 <color key="backgroundColor" red="0.23004108670000001" green="0.46287977699999999" blue="0.45098185540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
