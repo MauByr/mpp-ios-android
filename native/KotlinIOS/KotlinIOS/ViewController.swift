@@ -59,6 +59,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
 }
 
+extension ViewController {
+    func presentSearchPage(){
+        var searchPage = SearchPageViewController()
+        searchPage.delegate = self
+        self.presentSearchPage()
+    }
+}
+
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     private func setupScrollWheel(){
         self.departureStationScrollWheel.dataSource = self

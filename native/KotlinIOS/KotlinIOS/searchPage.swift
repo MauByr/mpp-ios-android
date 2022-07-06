@@ -15,10 +15,11 @@ class SearchPageViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var stationsTable: UITableView!
     
-    private let presenter: ApplicationContractPresenter = ApplicationPresenter()
-
+    var testingList: [String] = ["station 1", "station 2", "station 3"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
 }
@@ -28,5 +29,15 @@ extension SearchPageViewController: UISearchBarDelegate {
 }
 
 extension SearchPageViewController: UITableViewDelegate, UITableViewDataSource {
-    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return testingList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "Cell")
+        return cell
+
+    }
+
+
 }
