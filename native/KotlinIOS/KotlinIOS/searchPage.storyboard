@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search Page View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="SearchPageViewController" customModule="KotlinIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,6 +40,10 @@
                             <constraint firstItem="gRv-Cu-NeA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="rqB-Pf-43s"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="FRw-Wz-TCG" id="dXG-v3-Fru"/>
+                        <outlet property="stationsTable" destination="UCM-7y-fkx" id="qrb-od-rGb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
