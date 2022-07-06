@@ -2,5 +2,7 @@
     <string name="app_name">KotlinMPP</string>
     <string name="searchButtonText">Search</string>
     <string name="ticketInfoOperator">Operator</string>
-    <string name="rightArrowSymbol"><![CDATA[->]]></string>
+    <string name="rightArrowSymbol"><![CDATA[→]]></string>
+    <string name="searching_text">Searching…</string>
+    <string name="message_no_trains">No Trains 🚫🚂</string>
 </resources>

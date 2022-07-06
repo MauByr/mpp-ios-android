@@ -6,10 +6,20 @@ class ViewController: UIViewController {
     @IBOutlet var arrivalStationScrollWheel: UIPickerView!
 
     @IBOutlet var fareSearchButton: UIButton!
+    @IBOutlet var searchStatusBar: UILabel!
     @IBOutlet var trainsTable: UITableView!
+    
 
     @IBAction func trainSearchButtonPressed(_ sender: Any) {
-        presenter.onSearchClicked(initialStation: "KGX", ultimateStation: "EDB", timeUTCString: nil)
+        searchStatusBar.text = "searching ..."
+        validTrains = []
+        trainsTable.reloadData()
+        
+        let initialStationIndex = departureStationScrollWheel.selectedRow(inComponent: 0)
+        let finalStationIndex = arrivalStationScrollWheel.selectedRow(inComponent: 0)
+        presenter.onSearchClicked(initialStation: stationList[initialStationIndex],
+                                  ultimateStation: stationList[finalStationIndex],
+                                  timeUTCString: nil)
     }
     
     var stationList: [String] = []
@@ -77,21 +87,32 @@ extension ViewController: ApplicationContractView {
     func populateStationList(stations: [JourneyStation]) {
         // TODO: do properly
         populateStationList(stations: stations.map({ station in station.crsCode}))
+        
     }
     
-    func showResults(result: [JourneyTableDataElem]) {
-        validTrains = result
-        trainsTable.reloadData()
-    }
-
     func populateStationList(stations: [String]) {
         stationList = stations
         departureStationScrollWheel.reloadAllComponents()
         arrivalStationScrollWheel.reloadAllComponents()
     }
     
+    func showResults(result: [JourneyTableDataElem]) {
+        validTrains = result
+        if validTrains.isEmpty {
+            searchStatusBar.text = "no trains available"
+        }
+        else {
+            searchStatusBar.text = ""
+        }
+        trainsTable.reloadData()
+        
+    }
+
     func showAlert(msg: String) {
-        // TODO: not yet implemented
+        searchStatusBar.text = ""
+        let alert = UIAlertController(title: "Warning", message: msg, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func showResults(result: String) {

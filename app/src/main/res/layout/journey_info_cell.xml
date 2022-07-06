@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/Linen">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,11 +16,8 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="0dp"
+                style="@style/stationInfoBox"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:background="@color/ticketInfoStationColour"
-                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -36,21 +34,31 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/arrow"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/rightArrowSymbol"
-                tools:textAlignment="center" />
+            <LinearLayout
+                style="@style/centralTicketInfo"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/changes"
+                    style="@style/journeyInfoChangesText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="13 changes"
+                    tools:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/arrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/rightArrowSymbol"
+                    tools:textAlignment="center" />
+
+            </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
+                style="@style/stationInfoBox"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:background="@color/ticketInfoStationColour"
-                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -69,12 +77,9 @@
 
             <TextView
                 android:id="@+id/price"
-                android:layout_width="0dp"
+                style="@style/moneyBoxStyle"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center"
-                tools:text="£££"
-                tools:textAlignment="center" />
+                tools:text="£££" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,20 +89,16 @@
 
             <TextView
                 android:id="@+id/carrier"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/journeyInfoLowerBarElem"
                 android:layout_weight="1"
-                android:background="#ED1919"
                 tools:text="@string/ticketInfoOperator" />
 
             <TextView
                 android:id="@+id/journeyTime"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                style="@style/journeyInfoLowerBarElem"
                 android:layout_weight="0.5"
-                android:background="@color/LNERRed"
-                tools:text="14:46"
-                tools:textAlignment="textEnd" />
+                android:textAlignment="textEnd"
+                tools:text="14:46" />
         </LinearLayout>
 
     </LinearLayout>

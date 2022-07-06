@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/Linen"
+    android:textColor="@color/DarkJungleGreen">
 
-    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -13,46 +16,63 @@
 
         <TextView
             android:id="@+id/main_text"
-            android:layout_width="wrap_content"
+            style="@style/mainTitle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5sp"
-            android:text="Hello World!"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textSize="42sp" />
+            tools:text="Hello World!" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/from_station"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:spinnerMode="dropdown" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/rightArrowSymbol"
+                android:textAlignment="center"
+                android:textSize="36sp" />
 
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/to_station"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="4" />
 
             <Button
                 android:id="@+id/search_button"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@color/MyrtleGreen"
                 android:text="@string/searchButtonText" />
+
         </LinearLayout>
+
+        <TextView
+            style="@style/searchStatus"
+            android:id="@+id/searchStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            tools:text="Loading..." />
 
         <view
             android:id="@+id/search_results"
             class="androidx.recyclerview.widget.RecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="362dp"
+            android:layout_height="wrap_content"
             app:layoutManager="LinearLayoutManager" />
-
 
     </LinearLayout>
 </ScrollView>

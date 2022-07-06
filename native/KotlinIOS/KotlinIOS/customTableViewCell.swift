@@ -8,6 +8,7 @@ class customTableViewCell: UITableViewCell {
     @IBOutlet var arrivalStation: UILabel!
     @IBOutlet var arrivalTime: UILabel!
     
+    @IBOutlet var changesLabel: UILabel!
     @IBOutlet var trainOperator: UILabel!
     @IBOutlet var ticketPrice: UILabel!
     @IBOutlet var journeyTime: UILabel!
@@ -32,7 +33,7 @@ class customTableViewCell: UITableViewCell {
         
         trainOperator.text = (journey.isAGoodTrain() ? "😄" : "🤮") + journey.trainOperator
         ticketPrice.text = journey.ticketCost
-        
+        changesLabel.text = journey.changes
         journeyTime.text = journey.journeyTime
     }
 }

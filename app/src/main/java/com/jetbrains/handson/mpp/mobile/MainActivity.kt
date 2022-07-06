@@ -1,9 +1,11 @@
 package com.jetbrains.handson.mpp.mobile
 
 import android.os.Bundle
-import android.widget.*
+import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyStation
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,7 +30,12 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
     }
 
     override fun showResults(result: List<JourneyTableDataElem>) {
-        search_results.adapter = SearchResultAdapter(result)//.text = result.toString()
+        search_results.adapter = SearchResultAdapter(result)
+        if (result.isEmpty()) {
+            searchStatus.text = getString(R.string.message_no_trains)
+        } else {
+            searchStatus.visibility = View.GONE
+        }
     }
 
     override fun populateStationList(stations: List<JourneyStation>) {
@@ -43,10 +50,17 @@ class MainActivity : AppCompatActivity(), ApplicationContract.View {
     private fun setupSearchListener(presenter: ApplicationPresenter) {
         val button: Button = findViewById(R.id.search_button)
         button.setOnClickListener {
+            searchStatus.text = getString(R.string.searching_text)
+            searchStatus.visibility = View.VISIBLE
+            //TODO:clear current results
             val fromStation = departureSpinner?.selectedItem as JourneyStation?
             val toStation = arrivalSpinner?.selectedItem as JourneyStation?
-            if(fromStation != null && toStation!=null){
-                presenter.onSearchClicked(fromStation.crsCode,toStation.crsCode,timeUTCString = null)
+            if (fromStation != null && toStation != null) {
+                presenter.onSearchClicked(
+                    fromStation.crsCode,
+                    toStation.crsCode,
+                    timeUTCString = null
+                )
             }
 
 
