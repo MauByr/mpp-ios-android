@@ -12,80 +12,99 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KotlinIOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wsq-9c-ZSU">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="KotlinIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wsq-9c-ZSU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WZ7-X2-mKE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Y8I-cP-dhH">
+                                <rect key="frame" x="5" y="44" width="404" height="818"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01q-Ru-ay2">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="152"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="BUTTON TO STATION SEARCH page"/>
-                                        <connections>
-                                            <action selector="tesingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iTB-a1-fvU"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-T3-eip">
-                                        <rect key="frame" x="0.0" y="152" width="414" height="216"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="WZ7-X2-mKE">
+                                        <rect key="frame" x="0.0" y="0.0" width="404" height="408.5"/>
                                         <subviews>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pw0-aR-0Hx">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="216"/>
-                                                <color key="backgroundColor" red="0.96803897620000001" green="0.92232555149999995" blue="0.88234633210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <color key="tintColor" systemColor="labelColor"/>
-                                            </pickerView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4s-Ak-9AH">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="216"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-T3-eip">
+                                                <rect key="frame" x="0.0" y="0.0" width="404" height="63"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="NBT-sG-d2H">
+                                                        <rect key="frame" x="0.0" y="0.0" width="201.5" height="63"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwZ-BP-TFo">
+                                                                <rect key="frame" x="0.0" y="0.0" width="201.5" height="31"/>
+                                                                <color key="tintColor" red="0.96803897620000001" green="0.92232555149999995" blue="0.88234633210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="From:">
+                                                                    <color key="baseBackgroundColor" red="0.44002875689999998" green="0.5691494346" blue="0.53725260500000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="fromStationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f8L-Eb-SUy"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtF-Im-dcc">
+                                                                <rect key="frame" x="0.0" y="32" width="201.5" height="31"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="To:">
+                                                                    <color key="baseBackgroundColor" red="0.44002875689999998" green="0.5691494346" blue="0.53725260500000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="toStationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pWC-8P-K8n"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8s-eR-Fkb">
+                                                        <rect key="frame" x="202.5" y="0.0" width="201.5" height="63"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="swap"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-oD-jHq">
+                                                <rect key="frame" x="0.0" y="64" width="404" height="293.5"/>
                                                 <color key="backgroundColor" red="0.23004108670000001" green="0.46287977699999999" blue="0.45098185540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                                <nil key="textColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Search">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="trainSearchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nLG-Nm-bRW"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQw-tL-k62">
+                                                <rect key="frame" x="0.0" y="358.5" width="404" height="50"/>
+                                                <color key="backgroundColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.96803897620000001" green="0.92232555149999995" blue="0.88234633210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBP-ot-LQd">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="216"/>
-                                                <color key="backgroundColor" red="0.96803897620000001" green="0.92232555149999995" blue="0.88234633210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </pickerView>
                                         </subviews>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <color key="tintColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-oD-jHq">
-                                        <rect key="frame" x="0.0" y="368" width="414" height="30"/>
-                                        <color key="backgroundColor" red="0.23004108670000001" green="0.46287977699999999" blue="0.45098185540000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Search">
-                                            <color key="titleColor" systemColor="labelColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="trainSearchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nLG-Nm-bRW"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQw-tL-k62">
-                                        <rect key="frame" x="0.0" y="398" width="414" height="50"/>
-                                        <color key="backgroundColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.96803897620000001" green="0.92232555149999995" blue="0.88234633210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lcS-hV-RSW" userLabel="trainsTableView">
+                                        <rect key="frame" x="0.0" y="409.5" width="404" height="408.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="sectionIndexBackgroundColor" systemColor="systemYellowColor"/>
+                                    </tableView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <color key="tintColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="lcS-hV-RSW" userLabel="trainsTableView">
-                                <rect key="frame" x="0.0" y="448" width="414" height="448"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" systemColor="systemYellowColor"/>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ws0-RM-PHx"/>
-                        <color key="backgroundColor" red="0.80674368139999997" green="0.1012093797" blue="0.17563682789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                         <color key="tintColor" systemColor="linkColor"/>
-                    </stackView>
+                        <constraints>
+                            <constraint firstItem="Y8I-cP-dhH" firstAttribute="leading" secondItem="ws0-RM-PHx" secondAttribute="leading" constant="5" id="BI1-TI-0D8"/>
+                            <constraint firstItem="Y8I-cP-dhH" firstAttribute="top" secondItem="ws0-RM-PHx" secondAttribute="top" id="hHA-mM-myc"/>
+                            <constraint firstItem="ws0-RM-PHx" firstAttribute="bottom" secondItem="Y8I-cP-dhH" secondAttribute="bottom" id="jsI-7c-TUd"/>
+                            <constraint firstItem="ws0-RM-PHx" firstAttribute="trailing" secondItem="Y8I-cP-dhH" secondAttribute="trailing" constant="5" id="qi5-ad-TUU"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="arrivalStationScrollWheel" destination="lBP-ot-LQd" id="Pcy-AL-wZg"/>
-                        <outlet property="departureStationScrollWheel" destination="Pw0-aR-0Hx" id="zdy-eu-a3M"/>
                         <outlet property="fareSearchButton" destination="hKj-oD-jHq" id="uYC-lv-aJE"/>
+                        <outlet property="fromStationButton" destination="wwZ-BP-TFo" id="QoN-6L-H0V"/>
                         <outlet property="searchStatusBar" destination="XQw-tL-k62" id="cBd-a2-gMo"/>
+                        <outlet property="toStationButton" destination="mtF-Im-dcc" id="PLE-hF-8bA"/>
                         <outlet property="trainsTable" destination="lcS-hV-RSW" id="3EB-oZ-9q5"/>
                     </connections>
                 </viewController>
@@ -103,6 +122,9 @@
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -2,27 +2,37 @@ import UIKit
 import SharedCode
 
 class ViewController: UIViewController {
-    @IBOutlet var departureStationScrollWheel: UIPickerView!
-    @IBOutlet var arrivalStationScrollWheel: UIPickerView!
-
+    
+    @IBOutlet var fromStationButton: UIButton!
+    @IBOutlet var toStationButton: UIButton!
+    
+    @IBAction func fromStationButtonPressed(_ sender: Any) {
+        presentSearchPage()
+    }
+    
+    @IBAction func toStationButtonPressed(_ sender: Any) {
+        presentSearchPage()
+    }
+    
     @IBOutlet var fareSearchButton: UIButton!
     @IBOutlet var searchStatusBar: UILabel!
     @IBOutlet var trainsTable: UITableView!
     
-    @IBAction func tesingButton(_ sender: Any) {
-        presentSearchPage()
-    }
+
     
     @IBAction func trainSearchButtonPressed(_ sender: Any) {
         searchStatusBar.text = "searching ..."
         validTrains = []
         trainsTable.reloadData()
+//        presenter.onSearchClicked(initialStation: fromStationButton.titleLabel,
+//                                  ultimateStation: toStationButton.titleLabel,
+//                                  timeUTCString: nil)
         
-        let initialStationIndex = departureStationScrollWheel.selectedRow(inComponent: 0)
-        let finalStationIndex = arrivalStationScrollWheel.selectedRow(inComponent: 0)
-        presenter.onSearchClicked(initialStation: stationList[initialStationIndex],
-                                  ultimateStation: stationList[finalStationIndex],
-                                  timeUTCString: nil)
+//        let initialStationIndex = departureStationScrollWheel.selectedRow(inComponent: 0)
+//        let finalStationIndex = arrivalStationScrollWheel.selectedRow(inComponent: 0)
+//        presenter.onSearchClicked(initialStation: stationList[initialStationIndex],
+//                                  ultimateStation: stationList[finalStationIndex],
+//                                  timeUTCString: nil)
     }
     
     var stationList: [String] = []
@@ -64,20 +74,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
 
 extension ViewController {
     func presentSearchPage(){
-        let popupTest = SearchPageViewController()
+        let popupTest = SearchPageViewController(stationList)
         self.present(popupTest, animated: true, completion: nil)
     }
 }
 
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     private func setupScrollWheel(){
-        self.departureStationScrollWheel.dataSource = self
-        self.departureStationScrollWheel.delegate = self
-        
-        self.arrivalStationScrollWheel.dataSource = self
-        self.arrivalStationScrollWheel.delegate = self
-        
-        populateStationList(stations: stationList)
+//        self.departureStationScrollWheel.dataSource = self
+//        self.departureStationScrollWheel.delegate = self
+//
+//        self.arrivalStationScrollWheel.dataSource = self
+//        self.arrivalStationScrollWheel.delegate = self
+//
+//        populateStationList(stations: stationList)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -102,8 +112,8 @@ extension ViewController: ApplicationContractView {
     
     func populateStationList(stations: [String]) {
         stationList = stations
-        departureStationScrollWheel.reloadAllComponents()
-        arrivalStationScrollWheel.reloadAllComponents()
+//        departureStationScrollWheel.reloadAllComponents()
+//        arrivalStationScrollWheel.reloadAllComponents()
     }
     
     func showResults(result: [JourneyTableDataElem]) {
