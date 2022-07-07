@@ -59,6 +59,12 @@ extension SearchPageViewController: UITableViewDelegate, UITableViewDataSource {
         return stationList.count
     }
 
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentSelection.station = stationList[indexPath.row]
+        delegate?.pageDismissed()
+        dismiss(animated: true)
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "Cell")
         let station = stationList[indexPath.row]
@@ -70,4 +76,5 @@ extension SearchPageViewController: UITableViewDelegate, UITableViewDataSource {
 }
 protocol SearchPageViewControllerDelegate: AnyObject{
     func filterSearchResults(query:String)->[JourneyStation]
+    func pageDismissed()
 }

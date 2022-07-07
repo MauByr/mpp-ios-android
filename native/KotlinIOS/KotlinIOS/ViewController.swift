@@ -6,8 +6,13 @@ class ViewController: UIViewController {
     @IBOutlet var fromStationButton: UIButton!
     @IBOutlet var toStationButton: UIButton!
 
-    private let fromStation = UserStationSelection()
-    private let toStation = UserStationSelection()
+    @IBAction func swapButtonClick(_ sender: Any) {
+        (toStation, fromStation) = (fromStation, toStation)
+        updateButtonTitles()
+    }
+    
+    private var fromStation = UserStationSelection()
+    private var toStation = UserStationSelection()
     private var validStations: [JourneyStation] = []
 
     @IBAction func fromStationButtonPressed(_ sender: Any) {
@@ -27,15 +32,9 @@ class ViewController: UIViewController {
         searchStatusBar.text = "searching ..."
         validTrains = []
         trainsTable.reloadData()
-//        presenter.onSearchClicked(initialStation: fromStationButton.titleLabel,
-//                                  ultimateStation: toStationButton.titleLabel,
-//                                  timeUTCString: nil)
-
-//        let initialStationIndex = departureStationScrollWheel.selectedRow(inComponent: 0)
-//        let finalStationIndex = arrivalStationScrollWheel.selectedRow(inComponent: 0)
-//        presenter.onSearchClicked(initialStation: stationList[initialStationIndex],
-//                                  ultimateStation: stationList[finalStationIndex],
-//                                  timeUTCString: nil)
+        presenter.onSearchClicked(initialStation: fromStation.station!.crsCode,
+                                  ultimateStation: toStation.station!.crsCode,
+                                  timeUTCString: nil)
     }
 
     var stationList: [String] = []
@@ -47,8 +46,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         presenter.onViewTaken(view: self)
         setupTable()
-        setupScrollWheel()
     }
+
+    private func updateButtonTitles() {
+        fromStationButton.setTitle("From: \(fromStation.station?.fullName ?? "")", for: .normal)
+        toStationButton.setTitle("To: \(toStation.station?.fullName ?? "")", for: .normal)
+    }
+
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -81,6 +85,11 @@ extension ViewController :SearchPageViewControllerDelegate{
         return presenter.refineSearchResults(query: query, original: validStations)
     }
 
+    func pageDismissed(){
+        print(fromStation.station)
+        updateButtonTitles()
+    }
+
     func presentSearchPage(currentSelection: UserStationSelection) {
         let popupTest = SearchPageViewController.createSearchPage(stationList: validStations, currentSelection: currentSelection)
         popupTest.delegate = self
@@ -88,29 +97,6 @@ extension ViewController :SearchPageViewControllerDelegate{
     }
 }
 
-extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    private func setupScrollWheel() {
-//        self.departureStationScrollWheel.dataSource = self
-//        self.departureStationScrollWheel.delegate = self
-//
-//        self.arrivalStationScrollWheel.dataSource = self
-//        self.arrivalStationScrollWheel.delegate = self
-//
-//        populateStationList(stations: stationList)
-    }
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return stationList.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return stationList[row]
-    }
-}
 
 extension ViewController: ApplicationContractView {
     func populateStationList(stations: [JourneyStation]) {
@@ -121,8 +107,6 @@ extension ViewController: ApplicationContractView {
 
     func populateStationList(stations: [String]) {
         stationList = stations
-//        departureStationScrollWheel.reloadAllComponents()
-//        arrivalStationScrollWheel.reloadAllComponents()
     }
 
     func showResults(result: [JourneyTableDataElem]) {
