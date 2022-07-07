@@ -23,6 +23,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="152"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="BUTTON TO STATION SEARCH page"/>
+                                        <connections>
+                                            <action selector="tesingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iTB-a1-fvU"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-T3-eip">
                                         <rect key="frame" x="0.0" y="152" width="414" height="216"/>

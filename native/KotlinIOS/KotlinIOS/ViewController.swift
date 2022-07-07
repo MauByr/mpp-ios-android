@@ -9,7 +9,10 @@ class ViewController: UIViewController {
     @IBOutlet var searchStatusBar: UILabel!
     @IBOutlet var trainsTable: UITableView!
     
-
+    @IBAction func tesingButton(_ sender: Any) {
+        presentSearchPage()
+    }
+    
     @IBAction func trainSearchButtonPressed(_ sender: Any) {
         searchStatusBar.text = "searching ..."
         validTrains = []
@@ -61,9 +64,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
 
 extension ViewController {
     func presentSearchPage(){
-        var searchPage = SearchPageViewController()
-        searchPage.delegate = self
-        self.presentSearchPage()
+        let popupTest = SearchPageViewController()
+        self.present(popupTest, animated: true, completion: nil)
     }
 }
 
