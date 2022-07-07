@@ -14,7 +14,16 @@ interface ApplicationContract {
 
     abstract class Presenter : CoroutineScope {
         abstract fun onViewTaken(view: View)
-        abstract fun onSearchClicked(initialStation:String="KGX",ultimateStation:String="EDB",timeUTCString:String?)
+        abstract fun onSearchClicked(
+            initialStation: String = "KGX",
+            ultimateStation: String = "EDB",
+            timeUTCString: String?
+        )
+
+        abstract fun refineSearchResults(
+            query: String,
+            original: List<JourneyStation>
+        ): List<JourneyStation>
     }
 
 }

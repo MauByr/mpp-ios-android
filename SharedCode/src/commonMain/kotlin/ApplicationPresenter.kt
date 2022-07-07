@@ -45,10 +45,21 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
         }
     }
 
+    override fun refineSearchResults(
+        query: String,
+        original: List<JourneyStation>
+    ): List<JourneyStation> {
+        val queryUpper = query.toUpperCase()
+        return original.filter {
+            it.fullName.toUpperCase().startsWith(queryUpper) or (it.crsCode.startsWith(queryUpper))
+        }
+    }
+
     private fun getStationList() {
         launch {
             APIService.getStationList().let { stationList ->
-                val stationNames = stationList?.stations?.map { JourneyStation(it) }?.filter { it.crsCode!="" }
+                val stationNames =
+                    stationList?.stations?.map { JourneyStation(it) }?.filter { it.crsCode != "" }
                 stationNames?.let { view?.populateStationList(it) }
             }
         }
