@@ -29,7 +29,8 @@ fun getTestMapData(): MapData {
         JourneyWayPoint(
             "Edinburgh",
             GeoCoordinate(65.0, 00.0)
-        )
+        ),
+        emptyList()
     )
 }
 
