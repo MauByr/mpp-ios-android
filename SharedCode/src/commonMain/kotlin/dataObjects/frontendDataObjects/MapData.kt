@@ -2,7 +2,12 @@ package com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects
 
 data class MapData(
     val startStation: JourneyWayPoint,
-    val endStation: JourneyWayPoint
+    val endStation: JourneyWayPoint,
+    val legs: List<Leg>
+)
+
+data class Leg(
+    val stops: List<JourneyWayPoint>
 )
 
 data class JourneyWayPoint(
@@ -27,3 +32,4 @@ fun getTestMapData(): MapData {
         )
     )
 }
+
