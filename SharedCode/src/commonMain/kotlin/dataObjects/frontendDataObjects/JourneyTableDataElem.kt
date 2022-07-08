@@ -11,6 +11,7 @@ const val BEST_TRAIN_OPERATOR = "London North Eastern Railway"
 val ISODateFormat = DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
 
 class JourneyTableDataElem(journey: Journey) {
+    val journeyId: String = journey.journeyId
     val startStation: JourneyStation = JourneyStation(journey.originStation)
 
     private val startTimeRaw: DateTimeTz = ISODateFormat.parse(journey.departureTime)

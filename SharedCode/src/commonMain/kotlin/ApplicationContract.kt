@@ -2,6 +2,7 @@ package com.jetbrains.handson.mpp.mobile
 
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyStation
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
+import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.MapData
 import kotlinx.coroutines.CoroutineScope
 
 interface ApplicationContract {
@@ -24,6 +25,8 @@ interface ApplicationContract {
             query: String,
             original: List<JourneyStation>
         ): List<JourneyStation>
+
+        abstract fun getMapDataForJourneyID(journeyId:String):MapData
     }
 
 }

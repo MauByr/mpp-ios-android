@@ -1,13 +1,13 @@
 package com.jetbrains.handson.mpp.mobile
 
+import com.jetbrains.handson.mpp.mobile.dataObjects.StationInfo
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyStation
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
+import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.MapData
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
-
-
 
 
 class ApplicationPresenter : ApplicationContract.Presenter() {
@@ -15,6 +15,8 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
     private val dispatchers = AppDispatchersImpl()
     private var view: ApplicationContract.View? = null
     private val job: Job = SupervisorJob()
+    private val stationMap = HashMap<String, StationInfo>()
+
 
     override val coroutineContext: CoroutineContext
         get() = dispatchers.main + job
@@ -55,12 +57,23 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
         }
     }
 
+    override fun getMapDataForJourneyID(journeyId: String): MapData {
+        return MapData()
+    }
+
+
     private fun getStationList() {
         launch {
             APIService.getStationList().let { stationList ->
-                val stationNames =
-                    stationList?.stations?.map { JourneyStation(it) }?.filter { it.crsCode != "" }
-                stationNames?.let { view?.populateStationList(it) }
+                val validStations = stationList?.stations?.filter { it.crs != null }
+                stationMap.putAll(validStations!!.map { stationInfo ->
+                    Pair(
+                        stationInfo.crs!!,
+                        stationInfo
+                    )
+                })
+                val stationNames = validStations.map { JourneyStation(it) }
+                stationNames.let { view?.populateStationList(it) }
             }
         }
     }
