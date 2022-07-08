@@ -20,6 +20,7 @@
 		6A680C43286B073800D33924 /* customTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A680C41286B073800D33924 /* customTableViewCell.xib */; };
 		6AA359E828734BEC007ACDAF /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA359E728734BEC007ACDAF /* SearchPageViewController.swift */; };
 		6AC5A7E12876DACD009318EB /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC5A7E02876DACD009318EB /* SearchPageViewController.xib */; };
+		7F5A3A6F287824CA00A7D974 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A3A6E287824C900A7D974 /* Intents.intentdefinition */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		6A680C41286B073800D33924 /* customTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = customTableViewCell.xib; sourceTree = "<group>"; };
 		6AA359E728734BEC007ACDAF /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		6AC5A7E02876DACD009318EB /* SearchPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
+		7F5A3A6E287824C900A7D974 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				47729E0522F447C800B9B36B /* AppDelegate.swift */,
 				47729E0722F447C800B9B36B /* ViewController.swift */,
 				47729E0922F447C800B9B36B /* Main.storyboard */,
+				7F5A3A6E287824C900A7D974 /* Intents.intentdefinition */,
 				47729E0C22F447CA00B9B36B /* Assets.xcassets */,
 				47729E0E22F447CA00B9B36B /* LaunchScreen.storyboard */,
 				47729E1122F447CA00B9B36B /* Info.plist */,
@@ -314,6 +317,7 @@
 				47729E0822F447C800B9B36B /* ViewController.swift in Sources */,
 				47729E0622F447C800B9B36B /* AppDelegate.swift in Sources */,
 				6AA359E828734BEC007ACDAF /* SearchPageViewController.swift in Sources */,
+				7F5A3A6F287824CA00A7D974 /* Intents.intentdefinition in Sources */,
 				6A680C42286B073800D33924 /* customTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
