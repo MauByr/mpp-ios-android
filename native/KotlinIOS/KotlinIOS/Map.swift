@@ -14,8 +14,26 @@ import MapKit
 class Map: UIViewController{
     
     @IBOutlet var mapView: MKMapView!
+    @IBAction func closeMapPage(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    weak var delegate: MapDelegate?
     
     override func viewDidLoad(){
-        mapView.region
+        //mapView.region
     }
+    
+    public static func createMapPage() -> Map {
+        let newInstance = Map()
+        return newInstance
+    }
+    
+//    private func closeMapPage(){
+//        dismiss(animated: true)
+//    }
+}
+
+protocol MapDelegate: AnyObject{
+    func getMapData() -> AnyObject
 }

@@ -73,14 +73,28 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let popupTest = Map()
+        popupTest.delegate = self
+        self.present(popupTest, animated: true, completion: nil)
+    }
 
     private func registerTableViewCells() {
         let textFieldCell = UINib(nibName: "customTableViewCell", bundle: nil)
         self.trainsTable.register(textFieldCell, forCellReuseIdentifier: "customTableViewCell")
     }
+    
 }
 
-extension ViewController :SearchPageViewControllerDelegate{
+extension ViewController: MapDelegate {
+    func getMapData() -> AnyObject {
+        // TODO
+        return "this is a string" as AnyObject
+    }
+}
+
+extension ViewController : SearchPageViewControllerDelegate{
     func filterSearchResults(query: String) -> [JourneyStation] {
         return presenter.refineSearchResults(query: query, original: validStations)
     }
