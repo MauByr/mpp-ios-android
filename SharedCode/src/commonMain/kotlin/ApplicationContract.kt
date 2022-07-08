@@ -11,6 +11,7 @@ interface ApplicationContract {
         fun showAlert(msg: String)
         fun showResults(result: List<JourneyTableDataElem>)
         fun populateStationList(stations: List<JourneyStation>)
+        fun showMapData(data: MapData)
     }
 
     abstract class Presenter : CoroutineScope {
@@ -26,7 +27,7 @@ interface ApplicationContract {
             original: List<JourneyStation>
         ): List<JourneyStation>
 
-        abstract fun getMapDataForJourneyID(journeyId:String):MapData
+        abstract fun getMapDataForJourneyID(journeyId: String)
     }
 
 }

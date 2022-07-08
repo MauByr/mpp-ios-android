@@ -3,7 +3,7 @@ package com.jetbrains.handson.mpp.mobile
 import com.jetbrains.handson.mpp.mobile.dataObjects.StationInfo
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyStation
 import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.JourneyTableDataElem
-import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.MapData
+import com.jetbrains.handson.mpp.mobile.dataObjects.frontendDataObjects.getTestMapData
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
@@ -57,10 +57,9 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
         }
     }
 
-    override fun getMapDataForJourneyID(journeyId: String): MapData {
-        return MapData()
+    override fun getMapDataForJourneyID(journeyId: String) {
+        view?.showMapData(getTestMapData())
     }
-
 
     private fun getStationList() {
         launch {

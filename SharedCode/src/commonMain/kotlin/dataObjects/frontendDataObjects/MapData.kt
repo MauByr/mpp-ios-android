@@ -14,3 +14,16 @@ data class GeoCoordinate(
     val latitude: Double,
     val longitude: Double
 )
+
+fun getTestMapData(): MapData {
+    return MapData(
+        JourneyWayPoint(
+            "London",
+            GeoCoordinate(51.0, 00.0)
+        ),
+        JourneyWayPoint(
+            "Edinburgh",
+            GeoCoordinate(65.0, 00.0)
+        )
+    )
+}
