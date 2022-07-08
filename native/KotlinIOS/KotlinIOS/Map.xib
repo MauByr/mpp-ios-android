@@ -23,17 +23,14 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DJW-f8-AiP">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TjN-vS-zs2">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="787"/>
+                        </mapView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mn-2g-IkU">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
+                            <rect key="frame" x="0.0" y="787" width="414" height="31"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnv-PC-Zh2">
-                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="31"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqS-ig-oJs">
-                                    <rect key="frame" x="41.5" y="0.0" width="372.5" height="31"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="Close"/>
                                     <connections>
@@ -42,9 +39,6 @@
                                 </button>
                             </subviews>
                         </stackView>
-                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TjN-vS-zs2">
-                            <rect key="frame" x="0.0" y="31" width="414" height="787"/>
-                        </mapView>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="2nu-Hj-C6d"/>
                 </stackView>

@@ -39,6 +39,7 @@ class ViewController: UIViewController {
 
     var stationList: [String] = []
     var validTrains: [JourneyTableDataElem] = []
+    var currentlyOpenedMap : Map? = nil
 
     private let presenter: ApplicationContractPresenter = ApplicationPresenter()
 
@@ -75,10 +76,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let popupTest = Map()
-        popupTest.delegate = self
-        self.present(popupTest, animated: true, completion: nil)
+        currentlyOpenedMap = Map()
+        self.present(currentlyOpenedMap!, animated: true, completion: nil)
+        presenter.getMapDataForJourneyID(journeyId: "")
     }
+    
+    
 
     private func registerTableViewCells() {
         let textFieldCell = UINib(nibName: "customTableViewCell", bundle: nil)
@@ -87,12 +90,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
-extension ViewController: MapDelegate {
-    func getMapData() -> AnyObject {
-        // TODO
-        return "this is a string" as AnyObject
-    }
-}
 
 extension ViewController : SearchPageViewControllerDelegate{
     func filterSearchResults(query: String) -> [JourneyStation] {
@@ -100,7 +97,6 @@ extension ViewController : SearchPageViewControllerDelegate{
     }
 
     func pageDismissed(){
-        print(fromStation.station)
         updateButtonTitles()
     }
 
@@ -113,6 +109,10 @@ extension ViewController : SearchPageViewControllerDelegate{
 
 
 extension ViewController: ApplicationContractView {
+    func showMapData(data: MapData) {
+        currentlyOpenedMap?.displayMapData(mapData: data)
+    }
+    
     func populateStationList(stations: [JourneyStation]) {
         // TODO: do properly
         validStations = stations
