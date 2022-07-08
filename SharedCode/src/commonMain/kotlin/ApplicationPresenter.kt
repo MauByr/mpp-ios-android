@@ -58,9 +58,11 @@ class ApplicationPresenter : ApplicationContract.Presenter() {
     }
 
     override fun getMapDataForJourneyID(journeyId: String) {
+        println("Started search for $journeyId ")
         launch {
             APIService.getJourneyData(journeyId)?.let {
                 val journey = MapDataBuilder(stationMap).createMapDataFromAPIResponse(it)
+                println(journey)
                 view?.showMapData(journey)
             }
 
